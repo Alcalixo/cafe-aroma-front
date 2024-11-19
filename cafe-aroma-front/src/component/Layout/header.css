@@ -1,0 +1,19 @@
+.Header {
+  background-color: beige;
+  color: #a52a2a;
+  text-align: center;
+  padding: 10px 0; /* Padding vertical */
+  width: 100%; /* Usa el 100% del ancho */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Logo {
+  display: block; /* Para eliminar el espacio adicional que algunos navegadores agregan a las img. */
+  margin: 0 auto; /* Centrar las imágenes horizontalmente */
+  max-width: 100%; /* Asegurar que las imágenes no excedan el ancho del contenedor */
+  border: 3px solid #a52a2a; /* Contorno de 3px con un color verde (#69bd45) alrededor de la img.*/
+  border-radius: 10px; /* Borde redondeado de 10px para suavizar el contorno */
+  width: 200px;
+}
