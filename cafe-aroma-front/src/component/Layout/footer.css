@@ -3,7 +3,6 @@
   color: white;
   justify-content: center;
   position: absolute;
-  bottom: 0;
 }
 
 .Image {
@@ -49,4 +48,8 @@
 
 .Copyright{
     text-align: start;
+}
+
+.stack{
+  text-align: center;
 }
