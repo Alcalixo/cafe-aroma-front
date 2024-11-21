@@ -29,7 +29,7 @@ function Footer() {
                 <NavLink className="nav-link text-white">Contacto</NavLink>
               </Nav>
             </Row>
-            <Row className="Social-Icons fs-10">
+            <Row className="Social-Icons">
               <Nav>
                 <a
                   target="_blank"

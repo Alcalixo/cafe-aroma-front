@@ -7,7 +7,7 @@
 }
 
 .Image {
-  height: 150px;
+  height: 130px;
   width: auto;
 }
 
@@ -20,7 +20,7 @@
   justify-content: space-around; /* Distribuye los elementos a lo largo del contenedor */
   align-items: center; /* Centra los elementos verticalmente */
   width: 100%;
-  padding: 10px;
+  padding: 0;
 }
 
 .Nav-link {
@@ -31,7 +31,7 @@
 }
 
 .Icon {
-  font-size: 70px; /* Ajusta el tamaño de los iconos */
+  font-size: 60px; /* Ajusta el tamaño de los iconos */
   margin: 0 20px; /* Añade espacio entre los iconos */
   color: white; /* Asegura que los iconos sean blancos */
   width: 100%;
@@ -48,5 +48,5 @@
 }
 
 .Copyright{
-    text-align: center;
+    text-align: start;
 }
