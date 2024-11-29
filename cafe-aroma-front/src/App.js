@@ -9,7 +9,6 @@ function App() {
     <>
       <Header />
       <NavbarCafe />
-      <Productos />
       <p>Welcome</p>
       <Footer />
     </>
