@@ -1,0 +1,17 @@
+.card-zoom {
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+    align-items: center;
+  }
+  
+  .card-zoom:hover {
+    transform: scale(1.1);
+    background: rgb(178, 187, 49);
+    color: #000000;
+  }
+  
+  .plan:hover h1,
+  .plan:hover h2,
+  .plan:hover h3 {
+    color: #fff;
+  }
+ 
