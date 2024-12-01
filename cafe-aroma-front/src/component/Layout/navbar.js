@@ -9,6 +9,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { IoHome } from "react-icons/io5";
 import { GiCoffeeCup } from "react-icons/gi";
 import { BiSolidOffer } from "react-icons/bi";
+import { FaRegUserCircle } from "react-icons/fa";
+
 
 
 function NavbarCafe() {
@@ -28,6 +30,8 @@ function NavbarCafe() {
              Menú</Nav.Link>
             <Nav.Link href="#"><BiSolidOffer />
              Promos</Nav.Link>
+             <Nav.Link href="#"><FaRegUserCircle />
+             Usuarios</Nav.Link>
             <NavDropdown title="Sobre Nosotros" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#">Quienes somos</NavDropdown.Item>
               <NavDropdown.Divider />
