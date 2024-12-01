@@ -4,6 +4,7 @@ import Footer from "./component/Layout/footer";
 import NavbarCafe from "./component/Layout/navbar";
 import Productos from "./component/home/productos";
 import UserTable from "./component/admin/users";
+import About from "./component/About/about";
 
 function App() {
   return (

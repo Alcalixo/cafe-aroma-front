@@ -1,2 +1,2 @@
 import React from "react";
-import './conbos.css'
+import './combos.css'
