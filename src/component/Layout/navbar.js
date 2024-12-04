@@ -10,6 +10,7 @@ import { IoHome } from "react-icons/io5";
 import { GiCoffeeCup } from "react-icons/gi";
 import { BiSolidOffer } from "react-icons/bi";
 import { FaRegUserCircle } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
 
 
 
@@ -17,7 +18,7 @@ function NavbarCafe() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#"><IoHome /> Inicio
+        <Navbar.Brand as={Link} to={"/"}><IoHome /> Inicio
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -26,21 +27,21 @@ function NavbarCafe() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#"><GiCoffeeCup />
+            <Nav.Link as={NavLink} to="/productos"><GiCoffeeCup />
              Menú</Nav.Link>
-            <Nav.Link href="#"><BiSolidOffer />
+            <Nav.Link as={NavLink} to="/promos"><BiSolidOffer />
              Promos</Nav.Link>
-             <Nav.Link href="#"><FaRegUserCircle />
+             <Nav.Link as={NavLink} to="/listaUsuarios"><FaRegUserCircle />
              Usuarios</Nav.Link>
             <NavDropdown title="Sobre Nosotros" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#">Quienes somos</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/about">Quienes somos</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#">
+              <NavDropdown.Item as={Link} to="/contacto">
                 Contactanos!
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#">Login</Nav.Link>
-          <Nav.Link href="#">Registro</Nav.Link>
+            <Nav.Link as={NavLink} to="/ingreso">Login</Nav.Link>
+          <Nav.Link as={NavLink} to="/registro">Registro</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
