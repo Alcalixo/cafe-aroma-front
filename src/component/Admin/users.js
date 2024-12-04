@@ -1,7 +1,7 @@
 import React from "react";
 import "./user.css";
 import Table from "react-bootstrap/Table";
-import users from "../db/usersDB";
+import users from "../../service/db/usersDB";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { TiDelete } from "react-icons/ti";
 

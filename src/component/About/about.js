@@ -2,7 +2,7 @@ import React from "react";
 import './about.css'
 import { MdOutlineEdit } from "react-icons/md";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import personal from "./../db/personal";
+import personal from "../../service/db/personal";
 
 
 function About() {

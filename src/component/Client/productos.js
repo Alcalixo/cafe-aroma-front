@@ -2,7 +2,7 @@ import React from "react";
 import "./productos.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { TiShoppingCart } from "react-icons/ti";
-import productos from "./../db/productosDB"; // Asegúrate de que la ruta es correcta
+import productos from "../../service/db/productosDB"; 
 function Productos() {
   return (
     <Container>
