@@ -2,21 +2,22 @@ import React, { useEffect } from "react";
 import "./productos.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { TiShoppingCart } from "react-icons/ti";
-//import productos from "../../service/db/productosDB";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductos } from "../../service/Redux/actions/productActions";
+
 function Productos() {
-  const dispatch = useDispatch(); 
-  const productos = useSelector(state => state.productos); // Selecciona productos del estado global
+  const dispatch = useDispatch();
+  const productos = useSelector((state) => state.productos); // Selecciona productos del estado global
 
   useEffect(() => {
     dispatch(fetchProductos());
-  });
-  console.log('Productos:', productos); // Log para verificar los datos
+  }, [dispatch]); // Asegurarse de que fetchProductos solo se llama una vez
+
+  console.log("Productos:", productos); // Log para verificar los datos
 
   if (!Array.isArray(productos)) {
-    return <p>Cargando productos...</p>;
-  } // Renderizar algo mientras se cargan los datos
+    return <p>Cargando productos...</p>; // Renderizar algo mientras se cargan los datos
+  }
 
   return (
     <Container>
@@ -27,20 +28,20 @@ function Productos() {
             <Card className="card-zoom" border="warning">
               <Card.Img
                 variant="top"
-                src={producto.imagen}
-                alt={producto.nombre}
+                src={producto.images[0]} // Asegúrate de que la propiedad sea correcta
+                alt={producto.title} // Asegúrate de que la propiedad sea correcta
                 style={{ width: "200px" }}
               />
               <Card.Body>
-                <Card.Title>{producto.nombre}</Card.Title>
-                <Card.Text>{producto.descripcion}</Card.Text>
-                <Card.Text>Precio: ${producto.precio}</Card.Text>
+                <Card.Title>{producto.title}</Card.Title>
+                <Card.Text>{producto.description}</Card.Text>
+                <Card.Text>Precio: ${producto.price}</Card.Text>
                 <Card.Text>
                   Disponibilidad:
                   {producto.enStock ? "Disponible" : "No disponible"}
                 </Card.Text>
                 <Button variant="warning">
-                  <TiShoppingCart />
+                  <TiShoppingCart /> Agregar al Carrito
                 </Button>
               </Card.Body>
             </Card>
@@ -50,4 +51,5 @@ function Productos() {
     </Container>
   );
 }
+
 export default Productos;

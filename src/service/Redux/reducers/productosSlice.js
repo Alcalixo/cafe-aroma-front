@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const productoSlice = createSlice({
+const productosSlice = createSlice({
     name: 'productos',
     initialState: [],
     reducers: {
         getProductos: (state, action) => {
-            return action.payload; // Actualiza el estado con los productos obtenidos
+            return action.payload;
         }
     }
 });
 
-export const { getProductos } = productoSlice.actions;
-export default productoSlice.reducer;
+export const { getProductos } = productosSlice.actions;
+export default productosSlice.reducer;
