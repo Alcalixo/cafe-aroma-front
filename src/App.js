@@ -8,6 +8,7 @@ import About from "./component/About/about";
 import { Route, Routes } from "react-router-dom";
 import Home from "./component/home/home";
 import Erro404 from "./component/Layout/error404";
+import Cart from "./component/Client/cart";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/productos" element= {<Productos />}/>
         <Route path="/listaUsuarios" element= {<UserTable />}/>
         <Route path="/about" element= {<About />}/>
+        <Route path="/cart" element ={<Cart />}/>
         <Route path="*" element= {<Erro404 />}/>
       </Routes>
       <Footer />

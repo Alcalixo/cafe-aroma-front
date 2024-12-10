@@ -9,6 +9,7 @@ const store = configureStore({
         usuarios: usuariosReducer,  // Reducer de usuarios
         cart: cartReducer           // Reducer del carrito
     },
+    devTools: process.env.NODE_ENV !== 'production', // Habilitar Redux DevTools solo en modo desarrollo
 });
 
 export default store;

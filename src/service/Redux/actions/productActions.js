@@ -5,9 +5,11 @@ import { getProductos } from "../reducers/productosSlice"; // Importar la acció
 export const fetchProductos = () => {
   return async function (dispatch) {
     try {
+      console.log("Fetching productos..."); // Log
       const productos = (
         await axios("https://api.escuelajs.co/api/v1/products")
       ).data;
+      console.log("Fetched productos:", productos); // Log
       dispatch(getProductos(productos));
     } catch (error) {
       console.error("Error fetching products:", error);

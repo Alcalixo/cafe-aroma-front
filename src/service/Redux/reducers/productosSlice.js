@@ -5,6 +5,7 @@ const productosSlice = createSlice({
     initialState: [],
     reducers: {
         getProductos: (state, action) => {
+            console.log("Updating state with productos:", action.payload); // Log
             return action.payload;
         }
     }
