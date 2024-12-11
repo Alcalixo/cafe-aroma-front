@@ -1,0 +1,58 @@
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+.card-contacto{
+    background-color:bisque;
+    font-family: "Roboto", sans-serif;
+    box-shadow: 0 0 10px black;
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 0.75s ease-in-out;
+    overflow: hidden;
+      /* Dimensiones */
+      width: 380px; /* Ajusta el ancho */
+      height: 180px; /* Ajusta el alto */
+}
+.card-contacto:hover{
+    background-color: whitesmoke;
+    box-shadow: 0 0 50px white;
+}
+
+.card_logo img{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border: 3px maroon solid;
+    transition: all .5s ease-out;
+}
+
+.card_data{
+    color: brown;
+    transition: all .5s;
+}
+
+.card-contacto:hover>.card_data{
+    color: brown;
+    transform: translateX(-45%) scale(1.2);
+}
+
+.card-contacto:hover>.card_data p{
+    display:grid;
+    
+}
+
+.card-contacto:hover>.card_logo img{
+     border-radius: 50%;
+     transform: translateX(320%) scale(1.8);
+}

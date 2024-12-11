@@ -1,14 +1,14 @@
-.bodyLogin{
-    font-family: 'Poppins', 'sens-serif';
-    background: beige;
+.formbody-contacto{
+   
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
-    height: 100vh;
+    height: 90vh;
+    width: 70%;
 
 }
-.contentLogin{
+.contentContacto{
     background-color: #fcfcfc;
     border-radius: 40px;
     position: relative;
@@ -19,7 +19,7 @@
     
 }
 
-.contentLogin button{
+.contentContacto button{
    background-color: #eeb770;
    color: #fcfcfc;
    padding: 10px 10px;
@@ -55,7 +55,7 @@ btn:hover{
   z-index: 1000;
 }
 
-.contentLogin.active .switch-content{
+.contentContacto.active .switch-content{
     transform:translateX(100%);
     border-radius: 60px 0 0 60px;
 }
@@ -72,7 +72,7 @@ btn:hover{
     transition: all 0.6s ease-in-out;
 }
 
-.contentLogin.active .switch{
+.contentContacto.active .switch{
     transform:translateX(50%);
 }
 
@@ -95,7 +95,7 @@ btn:hover{
     transform: translateX(-200%);
 }
 
-.contentLogin.active .switch-left{
+.contentContacto.active .switch-left{
     transform: translateX(0);
 }
 
@@ -104,7 +104,12 @@ btn:hover{
     transform: translateX(0);
 }
 
-.contentLogin.active .switch-right{
+.contentContacto.active .switch-right{
     transform: translateX(200%);
 }
+.textArea{
+    width: 450%;
+    
+}
+
 

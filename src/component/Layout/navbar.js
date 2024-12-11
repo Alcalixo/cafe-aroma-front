@@ -56,7 +56,7 @@ function NavbarCafe() {
                 Contactanos!
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={NavLink} to="/ingreso">
+            <Nav.Link as={NavLink} to="/users/login">
               Login
             </Nav.Link>
             <Nav.Link as={NavLink} to="/registro">

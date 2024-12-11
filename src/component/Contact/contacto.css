@@ -1,0 +1,36 @@
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+.body{
+    background-color:rgb(207, 172, 120);
+    font-family: "Roboto", sans-serif;
+}
+
+.container-contacto{
+    height: 98vh;
+    display: grid;
+    justify-content:left;
+    align-items:center;
+    width: 30%;    
+}
+.formulario-contacto{
+  color: brown;
+  justify-content:right;
+    align-items:center;
+}
+
+.logo_contacto img{
+  height: 400px;
+  width: 1350px;
+}
+.contenedorContacto{
+  display: flex;
+  gap: 45px;
+}
