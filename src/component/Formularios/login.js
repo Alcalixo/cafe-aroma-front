@@ -11,6 +11,7 @@ function Login({ setIsAuthenticated }) {
     username: "",
     email: "",
     password: "",
+    //lines commented
     // provincia: null,
     // ciudad: null,
     // domicilio: null,
