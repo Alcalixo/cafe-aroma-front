@@ -11,9 +11,9 @@ function Login({ setIsAuthenticated }) {
     username: "",
     email: "",
     password: "",
-    provincia: null,
-    ciudad: null,
-    domicilio: null,
+    // provincia: null,
+    // ciudad: null,
+    // domicilio: null,
   }); // Estado para el formulario de registro
 
   const [errors, setErrors] = useState([]);
@@ -145,7 +145,7 @@ function Login({ setIsAuthenticated }) {
               value={registerForm.password}
               onChange={handleRegisterChange}
             />
-            <input
+            {/* <input
               type="text"
               name="provincia"
               placeholder="Provincia"
@@ -168,7 +168,7 @@ function Login({ setIsAuthenticated }) {
               className="form-control form-control-lg bg-light fs-6"
               value={registerForm.domicilio}
               onChange={handleRegisterChange}
-            />
+            /> */}
             <button type="submit" className="btn border-white w-60 fs-6">
               Registrarse
             </button>
