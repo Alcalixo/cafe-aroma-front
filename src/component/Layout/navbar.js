@@ -57,11 +57,10 @@ function NavbarCafe() {
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link as={NavLink} to="/users/login">
-              Login
+              Cuenta
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/registro">
-              Registro
-            </Nav.Link>
+            
+          
           </Nav>
           <div className="cart-link-container">
             <Link to="/cart" className="cart-link">
