@@ -5,15 +5,15 @@ import "./login.css";
 function Login({ setIsAuthenticated }) {
   const [form, setForm] = useState({ email: "", password: "" }); // Estado para el formulario de inicio
   const [registerForm, setRegisterForm] = useState({
-    dni: "",
+    dni: 0,
     nombre: "",
     apellido: "",
     username: "",
     email: "",
     password: "",
-    provincia: "",
-    ciudad: "",
-    domicilio: "",
+    // provincia: null,
+    // ciudad: null,
+    // domicilio: null,
   }); // Estado para el formulario de registro
 
   const [errors, setErrors] = useState([]);
@@ -31,7 +31,11 @@ function Login({ setIsAuthenticated }) {
 
   // Manejo del cambio en los campos del formulario de registro
   const handleRegisterChange = (e) => {
-    setRegisterForm({ ...registerForm, [e.target.name]: e.target.value });
+    if (e.target.name === "dni") {
+      setRegisterForm({ ...registerForm, [e.target.name]: parseInt(e.target.value) });
+    } else {
+      setRegisterForm({ ...registerForm, [e.target.name]: e.target.value });
+    }
   };
 
   // Función para manejar el inicio de sesión
@@ -63,6 +67,7 @@ function Login({ setIsAuthenticated }) {
     e.preventDefault();
     setErrors([]); // Inicializar como array vacío
     try {
+      console.log(registerForm);
       const response = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/users/registrarUsuario`,
         registerForm
@@ -93,10 +98,11 @@ function Login({ setIsAuthenticated }) {
               <h1>Registrarse</h1>
             </div>
             <input
-              type="text"
+              type="number"
               name="dni"
               placeholder="DNI"
               className="form-control form-control-lg bg-light fs-6"
+              value={registerForm.dni}
               onChange={handleRegisterChange}
             />
             <input
@@ -104,6 +110,7 @@ function Login({ setIsAuthenticated }) {
               name="nombre"
               placeholder="Nombre"
               className="form-control form-control-lg bg-light fs-6"
+              value={registerForm.nombre}
               onChange={handleRegisterChange}
             />
             <input
@@ -111,6 +118,7 @@ function Login({ setIsAuthenticated }) {
               name="apellido"
               placeholder="Apellido"
               className="form-control form-control-lg bg-light fs-6"
+              value={registerForm.apellido}
               onChange={handleRegisterChange}
             />
             <input
@@ -118,6 +126,7 @@ function Login({ setIsAuthenticated }) {
               name="username"
               placeholder="Nombre de Usuario"
               className="form-control form-control-lg bg-light fs-6"
+              value={registerForm.username}
               onChange={handleRegisterChange}
             />
             <input
@@ -125,6 +134,7 @@ function Login({ setIsAuthenticated }) {
               name="email"
               placeholder="Correo"
               className="form-control form-control-lg bg-light fs-6"
+              value={registerForm.email}
               onChange={handleRegisterChange}
             />
             <input
@@ -132,13 +142,15 @@ function Login({ setIsAuthenticated }) {
               name="password"
               placeholder="Contraseña"
               className="form-control form-control-lg bg-light fs-6"
+              value={registerForm.password}
               onChange={handleRegisterChange}
             />
-            <input
+            {/* <input
               type="text"
               name="provincia"
               placeholder="Provincia"
               className="form-control form-control-lg bg-light fs-6"
+              value={registerForm.provincia}
               onChange={handleRegisterChange}
             />
             <input
@@ -146,6 +158,7 @@ function Login({ setIsAuthenticated }) {
               name="ciudad"
               placeholder="Ciudad"
               className="form-control form-control-lg bg-light fs-6"
+              value={registerForm.ciudad}
               onChange={handleRegisterChange}
             />
             <input
@@ -153,8 +166,9 @@ function Login({ setIsAuthenticated }) {
               name="domicilio"
               placeholder="Domicilio"
               className="form-control form-control-lg bg-light fs-6"
+              value={registerForm.domicilio}
               onChange={handleRegisterChange}
-            />
+            /> */}
             <button type="submit" className="btn border-white w-60 fs-6">
               Registrarse
             </button>
@@ -181,6 +195,7 @@ function Login({ setIsAuthenticated }) {
                 name="email"
                 placeholder="Correo"
                 className="form-control form-control-lg bg-light fs-6"
+                value={form.email}
                 onChange={handleLoginChange}
               />
             </div>
@@ -190,6 +205,7 @@ function Login({ setIsAuthenticated }) {
                 name="password"
                 placeholder="Contraseña"
                 className="form-control form-control-lg bg-light fs-6"
+                value={form.password}
                 onChange={handleLoginChange}
               />
             </div>
