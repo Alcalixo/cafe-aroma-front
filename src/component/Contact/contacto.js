@@ -1,13 +1,13 @@
 import React from "react";
 import './contacto.css'
-//import CardList from "./tarjeta/CardList"
+import CardList from './tarjeta/CardList'
 import logo from '../../assets/img/contactanos.png';
 import FormContacto from './FormularioContacto/formContacto'
 import  './FormularioContacto/formContacto.css'
 
 
 
-function contacto(){
+function Contacto(){
     return(
         <>
         <div className="logo_contacto">
@@ -29,4 +29,4 @@ function contacto(){
     )
 }
 
-export default contacto;
+export default Contacto;

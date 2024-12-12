@@ -10,6 +10,7 @@ import Home from "./component/home/home";
 import Erro404 from "./component/Layout/error404";
 import Cart from "./component/Client/cart";
 import Login from "./component/Formularios/login";
+import Contacto from "./component/Contact/contacto";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/productos" element= {<Productos />}/>
         <Route path="/listaUsuarios" element= {<UserTable />}/>
         <Route path="/about" element= {<About />}/>
+        <Route path="/contacto" element={<Contacto />} />
         <Route path="/cart" element ={<Cart />}/>
         <Route path="/users/login" element={<Login />} />
         <Route path="*" element= {<Erro404 />}/>
