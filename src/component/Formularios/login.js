@@ -18,6 +18,7 @@ function Login({ setIsAuthenticated }) {
   }); // Estado para el formulario de registro
 
   const [errors, setErrors] = useState([]);
+  const [showErrors, setShowErrors] = useState(false);
 
   // Cambiar entre los formularios
   const switchContent = () => {
@@ -28,7 +29,7 @@ function Login({ setIsAuthenticated }) {
   // Manejo del cambio en los campos del formulario de inicio
   const handleLoginChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
+    };
 
   // Manejo del cambio en los campos del formulario de registro
   const handleRegisterChange = (e) => {
@@ -43,9 +44,10 @@ function Login({ setIsAuthenticated }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     setErrors([]); // Inicializar como array vacío
+    setShowErrors(false);
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/users/login`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/users/login`,
         form
       );
       localStorage.setItem("token", response.data.token); // Guardar token
@@ -58,8 +60,9 @@ function Login({ setIsAuthenticated }) {
           : [error.response.data.error];
         setErrors(apiErrors);
       } else {
-        alert("Error al iniciar sesión. Verifica tu correo y/o contraseña.");
+        setErrors(["Error al iniciar sesión. Verifica tu correo y/o contraseña."]);
       }
+      setShowErrors(true);
     }
   };
 
@@ -68,9 +71,8 @@ function Login({ setIsAuthenticated }) {
     e.preventDefault();
     setErrors([]); // Inicializar como array vacío
     try {
-      console.log(registerForm);
       const response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/users/registrarUsuario`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/users/registrarUsuario`,
         registerForm
       );
       alert("Registro exitoso. Ahora puedes iniciar sesión.");
@@ -82,8 +84,9 @@ function Login({ setIsAuthenticated }) {
           : [error.response.data.error];
         setErrors(apiErrors);
       } else {
-        alert("Error en el registro. Por favor, verifica tus datos.");
+        setErrors(["Error en el registro. Por favor, verifica tus datos."]);
       }
+      setShowErrors(true);
     }
   };
   return (
