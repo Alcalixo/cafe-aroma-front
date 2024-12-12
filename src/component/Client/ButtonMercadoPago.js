@@ -12,7 +12,6 @@ function ButtonMercadoPago({ cart }) {
     
     const createPreference = async () => {
         try {
-          console.log(cart)
           const response = await axios.post(
             `${process.env.REACT_APP_API_BASE_URL}/api/mercadoPago/createPreference`,
             cart
