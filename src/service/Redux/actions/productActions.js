@@ -7,7 +7,7 @@ export const fetchProductos = () => {
     try {
       console.log("Fetching productos..."); // Log
       const productos = (
-        await axios("https://api.escuelajs.co/api/v1/products")
+        await axios(`${process.env.REACT_APP_API_BASE_URL}/api/productos`)
       ).data;
       console.log("Fetched productos:", productos); // Log
       dispatch(getProductos(productos));
@@ -22,7 +22,7 @@ export const fetchProductoById = (id) => {
   return async function (dispatch) {
     try {
       const producto = (
-        await axios(`https://api.escuelajs.co/api/v1/products/${id}`)
+        await axios(`${process.env.REACT_APP_API_BASE_URL}/api/productos/${id}`)
       ).data;
       dispatch(getProductos(producto));
     } catch (error) {
@@ -35,7 +35,7 @@ export const fetchProductoById = (id) => {
 export const deleteProducto = (id) => {
   return async function (dispatch) {
     try {
-      await axios.delete(`https://api.escuelajs.co/api/v1/products/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/productos/${id}`);
       // Despacha una acción para eliminar producto del estado si es necesario
     } catch (error) {
       console.error("Error deleting product:", error);
@@ -49,7 +49,7 @@ export const updateProducto = (id, data) => {
     try {
       // Llamada a la API para obtener productos
       const updatedProducto = (
-        await axios.put(`https://api.escuelajs.co/api/v1/products/${id}`, data)
+        await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/productos/${id}`, data)
       ).data;
       // Despacha una acción para actualizar producto en el estado si es necesario
     } catch (error) {

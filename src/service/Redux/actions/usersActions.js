@@ -5,7 +5,7 @@ import { getUsuarios } from '../reducers/usuariosSlice';  // Importar la acción
 export const fetchUsuarios = () => {
     return async function(dispatch) {
         try {
-            const usuarios = (await axios("https://api.escuelajs.co/api/v1/users")).data;
+            const usuarios = (await axios(`${process.env.REACT_APP_API_BASE_URL}/api/users/admin/usuarios`)).data;
             dispatch(getUsuarios(usuarios));
         } catch (error) {
             console.error("Error fetching users:", error);
@@ -17,7 +17,7 @@ export const fetchUsuarios = () => {
 export const fetchUsuarioById = (id) => {
     return async function(dispatch) {
         try {
-            const usuario = (await axios(`https://api.escuelajs.co/api/v1/users/${id}`)).data;
+            const usuario = (await axios(`${process.env.REACT_APP_API_BASE_URL}/api/users/${id}`)).data;
             dispatch(getUsuarios(usuario));
         } catch (error) {
             console.error("Error fetching user by ID:", error);
@@ -29,7 +29,7 @@ export const fetchUsuarioById = (id) => {
 export const deleteUsuario = (id) => {
     return async function(dispatch) {
         try {
-            await axios.delete(`https://api.escuelajs.co/api/v1/users/${id}`);
+            await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/users/admin/destruirUsuario/${id}`);
             // Despacha una acción para eliminar usuario del estado si es necesario
         } catch (error) {
             console.error("Error deleting user:", error);
@@ -42,7 +42,7 @@ export const updateUsuario = (id, data) => {
     return async function(dispatch) {
         try {
             // Llamada a la API para obtener usuarios
-            const updatedUsuario = (await axios.put(`https://api.escuelajs.co/api/v1/users/${id}`, data)).data;
+            const updatedUsuario = (await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/users/editarUsuario/${id}`, data)).data;
             // Despacha una acción para actualizar usuario en el estado si es necesario
         } catch (error) {
             console.error("Error updating user:", error);

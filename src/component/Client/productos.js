@@ -22,10 +22,10 @@ function Productos() {
   const handleAddCart = (producto) => {
     dispatch(
       addCart({
-        id: producto.id,
-        images: producto.images,
-        title: producto.title,
-        price: producto.price,
+        _id: producto._id,
+        img: producto.img,
+        title: producto.name,
+        precio: producto.precio,
         description: producto.description,
       })
     );
@@ -35,22 +35,19 @@ function Productos() {
       <h2>Nuestros Productos</h2>
       <Row>
         {productos.map((producto) => (
-          <Col key={producto.id} md={4} className="mb-4">
+          <Col key={producto._id} md={4} className="mb-4">
             <Card className="card-zoom" border="warning">
               <Card.Img
                 variant="top"
-                src={producto.images}
-                alt={producto.title}
+                src={producto.img}
+                alt={producto.name}
                 style={{ width: "200px" }}
               />
               <Card.Body>
-                <Card.Title>{producto.title}</Card.Title>
+                <Card.Title>{producto.name}</Card.Title>
                 <Card.Text>{producto.description}</Card.Text>
-                <Card.Text>Precio: ${producto.price}</Card.Text>
-                <Card.Text>
-                  Disponibilidad:
-                  {producto.enStock ? "Disponible" : "No disponible"}
-                </Card.Text>
+                <Card.Text>Precio: ${producto.precio}</Card.Text>
+                <Card.Text>Disponibilidad:{producto.Stock} </Card.Text>
                 <Button
                   variant="warning"
                   onClick={() => handleAddCart(producto)}

@@ -29,20 +29,29 @@ function UserTable() {
           <Table striped className="tableUSer" border="warning">
             <thead>
               <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>User Name</th>
-                <th>Email</th>
-                <th>Category</th>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Usuario</th>
+                <th>Correo</th>
+                <th>Provincia</th>
+                <th>Ciudad</th>               
+                <th>Domicilio</th>
+                <th>Category</th>                
+                <th>Eliminado</th>
               </tr>
             </thead>
             <tbody>
               {usuarios.map((usuario) => (
-                <tr key={usuario.id}>
-                  <td>{usuario.id}</td>
-                  <td>{usuario.name}</td>
+                <tr key={usuario._id}>
+                  <td>{usuario.dni}</td>
+                  <td>{usuario.nombre}</td>
+                  <td>{usuario.apellido}</td>
                   <td>{usuario.username}</td>
                   <td>{usuario.email}</td>
+                  <td>{usuario.provincia}</td>
+                  <td>{usuario.ciudad}</td>
+                  <td>{usuario.domicilio}</td>
                   <td>
                     <Form.Control as="select" value={usuario.category}>
                       <option value="administrador">Administrador</option>
