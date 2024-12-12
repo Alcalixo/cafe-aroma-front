@@ -4,6 +4,7 @@ import { removeFromCart, updateQuantity } from "../../service/Redux/reducers/car
 import { Container, Row, Col, Image, Button, Form } from "react-bootstrap";
 import "./cart.css";
 import { Link } from "react-router-dom";
+import ButtonMercadoPago from "./ButtonMercadoPago";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -61,7 +62,8 @@ function Cart() {
         <h4>Total: ${(calculateSubtotal() * 1.21).toFixed(2)}</h4>
         <div className="cart-actions mt-4">
           <Link to="../productos"><Button variant="secondary" className="me-3">Continuar Comprando</Button></Link>
-          <Button variant="primary">Ir a Pagar</Button>
+          {/* <Button variant="primary">Ir a Pagar</Button> */}
+          <ButtonMercadoPago cart={cart} />
         </div>
       </div>
     </Container>
