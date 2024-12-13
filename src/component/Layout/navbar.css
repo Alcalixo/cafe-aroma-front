@@ -1,33 +1,57 @@
+/* Estilos del Navbar */
+.navbar-custom {
+  background-color: #343a40; /* Color de fondo oscuro */
+  padding: 10px 20px; /* Espaciado interno */
+}
+
+.navbar-custom .nav-link {
+  color: #ffffff; /* Color del texto */
+  font-size: 16px; /* Tamaño de fuente */
+  margin: 0 10px; /* Espaciado entre enlaces */
+  transition: color 0.3s; /* Transición suave para el color */
+}
+
+.navbar-custom .nav-link:hover {
+  color: #61e7ee; /* Color al pasar el mouse */
+}
+
+.navbar-custom .nav-link.active {
+  font-weight: bold; /* Resaltar el enlace activo */
+  color: #EBD758; /* Color del enlace activo */
+}
+
+.navbar-custom .navbar-brand img {
+  max-height: 60px; /* Altura máxima del logo */
+}
+
 .cart-link-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-right: 20px; /* Espacio a la derecha del carrito */
-  }
-  
-  .cart-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-    position: relative;
-  }
-  
-  .cart-icon {
-    font-size: 24px;
-  }
-  
-  .cart-count {
-    background-color: #ff6347; /* Color de fondo del contador */
-    color: #fff; /* Color del texto del contador */
-    border-radius: 50%;
-    padding: 4px 8px;
-    font-size: 14px;
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  position: relative; /* Para posicionar el contador del carrito */
+}
+
+.cart-icon {
+  font-size: 24px; /* Tamaño del icono del carrito */
+  color: #ffffff; /* Color del icono */
+}
+
+.cart-count {
+  position: absolute; /* Posicionamiento absoluto */
+  top: -5px; /* Ajustar la posición vertical */
+  right: -10px; /* Ajustar la posición horizontal */
+  background-color: #ff4757; /* Color de fondo del contador */
+  color: #ffffff; /* Color del texto del contador */
+  border-radius: 50%; /* Bordes redondeados */
+  padding: 2px 6px; /* Espaciado interno */
+  font-size: 12px; /* Tamaño de fuente del contador */
+}
+
+/* Estilos para el botón de búsqueda */
+.btn-outline-light {
+  border-color: #ffffff; /* Color del borde */
+  color: #ffffff; /* Color del texto */
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff; /* Color de fondo al pasar el mouse */
+  color: #343a40; /* Color del texto al pasar el mouse */
+}
   
