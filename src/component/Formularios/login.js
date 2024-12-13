@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import "./login.css";
+import { useAuth } from "../../service/AuthContext"; // Importa el contexto de autenticación
+import { jwtDecode } from "jwt-decode";
 
-function Login({ setIsAuthenticated }) {
+function Login() {
   const [form, setForm] = useState({ email: "", password: "" }); // Estado para el formulario de inicio
   const [registerForm, setRegisterForm] = useState({
     dni: 0,
@@ -20,6 +22,8 @@ function Login({ setIsAuthenticated }) {
   const [errors, setErrors] = useState([]);
   const [showErrors, setShowErrors] = useState(false);
 
+  const { login } = useAuth(); // Obtiene la función de login del contexto
+
   // Cambiar entre los formularios
   const switchContent = () => {
     const content = document.getElementById("contentLogin");
@@ -29,12 +33,15 @@ function Login({ setIsAuthenticated }) {
   // Manejo del cambio en los campos del formulario de inicio
   const handleLoginChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    };
+  };
 
   // Manejo del cambio en los campos del formulario de registro
   const handleRegisterChange = (e) => {
     if (e.target.name === "dni") {
-      setRegisterForm({ ...registerForm, [e.target.name]: parseInt(e.target.value) });
+      setRegisterForm({
+        ...registerForm,
+        [e.target.name]: parseInt(e.target.value),
+      });
     } else {
       setRegisterForm({ ...registerForm, [e.target.name]: e.target.value });
     }
@@ -43,7 +50,7 @@ function Login({ setIsAuthenticated }) {
   // Función para manejar el inicio de sesión
   const handleLogin = async (e) => {
     e.preventDefault();
-    setErrors([]); // Inicializar como array vacío
+    setErrors([]);
     setShowErrors(false);
     try {
       const response = await axios.post(
@@ -51,7 +58,8 @@ function Login({ setIsAuthenticated }) {
         form
       );
       localStorage.setItem("token", response.data.token); // Guardar token
-      setIsAuthenticated(true); // Actualizar estado de autenticación
+      const userData = jwtDecode(response.data.token); // Decodificar el token para obtener los datos del usuario
+      login(userData); // Pasar los datos del usuario al contexto de autenticación
       alert("Inicio de sesión exitoso.");
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -60,7 +68,9 @@ function Login({ setIsAuthenticated }) {
           : [error.response.data.error];
         setErrors(apiErrors);
       } else {
-        setErrors(["Error al iniciar sesión. Verifica tu correo y/o contraseña."]);
+        setErrors([
+          "Error al iniciar sesión. Verifica tu correo y/o contraseña.",
+        ]);
       }
       setShowErrors(true);
     }
@@ -89,6 +99,7 @@ function Login({ setIsAuthenticated }) {
       setShowErrors(true);
     }
   };
+
   return (
     <div className="bodyLogin">
       <div

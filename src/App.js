@@ -1,3 +1,4 @@
+// App.js
 import React from "react";
 import Header from "./component/Layout/header";
 import Footer from "./component/Layout/footer";
@@ -11,24 +12,39 @@ import Erro404 from "./component/Layout/error404";
 import Cart from "./component/Client/cart";
 import Login from "./component/Formularios/login";
 import Contacto from "./component/Contact/contacto";
+import { AuthProvider, useAuth } from "./service/AuthContext";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Header />
       <NavbarCafe />
-      <Routes>
-        <Route path="/" element= {<Home />}/>
-        <Route path="/productos" element= {<Productos />}/>
-        <Route path="/listaUsuarios" element= {<UserTable />}/>
-        <Route path="/about" element= {<About />}/>
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/cart" element ={<Cart />}/>
-        <Route path="/users/login" element={<Login />} />
-        <Route path="*" element= {<Erro404 />}/>
-      </Routes>
+      <MainRoutes />
       <Footer />
-    </>
+    </AuthProvider>
   );
 }
+
+function MainRoutes() {
+  const { isAuthenticated } = useAuth();
+
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/productos" element={<Productos />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contacto" element={<Contacto />} />
+      {isAuthenticated ? (
+        <>
+          <Route path="/listaUsuarios" element={<UserTable />} />
+          <Route path="/cart" element={<Cart />} />
+        </>
+      ) : (
+        <Route path="/users/login" element={<Login />} />
+      )}
+      <Route path="*" element={<Erro404 />} />
+    </Routes>
+  );
+}
+
 export default App;
