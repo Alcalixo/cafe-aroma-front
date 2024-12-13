@@ -2,6 +2,8 @@ import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { postOrder } from "../../service/Redux/actions/cartActions";
 
 function ButtonMercadoPago({ cart }) {
   const publicApi = process.env.REACT_APP_MP_PUBLIC_KEY;
@@ -9,10 +11,14 @@ function ButtonMercadoPago({ cart }) {
 
   const [preferenceId, setPreferenceId] = useState(null);
 
+  const globalCart = useSelector((state) => state.cart);
+
   const createPreference = async () => {
     try {
+      const newOrder = await postOrder(globalCart);
+      console.log(newOrder);
       const response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/mercadoPago/createPreference`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/mercadoPago/createPreference/${newOrder._id}`,
         cart
       );
       const { id } = response.data;

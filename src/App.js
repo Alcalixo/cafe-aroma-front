@@ -18,14 +18,18 @@ function App() {
       <Header />
       <NavbarCafe />
       <Routes>
-        <Route path="/" element= {<Home />}/>
-        <Route path="/productos" element= {<Productos />}/>
-        <Route path="/listaUsuarios" element= {<UserTable />}/>
-        <Route path="/about" element= {<About />}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/productos" element={<Productos />} />
+        <Route path="/listaUsuarios" element={<UserTable />} />
+        <Route path="/about" element={<About />} />
         <Route path="/contacto" element={<Contacto />} />
-        <Route path="/cart" element ={<Cart />}/>
+        <Route path="/cart" element={<Cart />} />
         <Route path="/users/login" element={<Login />} />
-        <Route path="*" element= {<Erro404 />}/>
+        {/* <Route
+          path="/mercado-pago-callback"
+          element={<MercadoPagoCallback />}
+        /> */}
+        <Route path="*" element={<Erro404 />} />
       </Routes>
       <Footer />
     </>
