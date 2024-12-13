@@ -40,6 +40,7 @@ function ButtonMercadoPago({ cart }) {
   const onSubmit = async (formData) => {
     // callback called when clicking on Wallet Brick
     // this is possible because Brick is a button
+    window.walletBrickController.unmount();
   };
 
   const onError = async (error) => {
