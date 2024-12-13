@@ -1,10 +1,10 @@
 import axios from "axios";
 
 // Acción para cargar una orden
-export const postOrder = async (cart) => {
+export const postOrder = async (cart, user) => {
   try {
     const newOrder = {
-      user_id: "6759c8ad8af708f723cae37a", // Reemplaza con el ID del usuario actual
+      user_id: user.id, // Reemplaza con el ID del usuario actual
       items: cart.map((item) => ({
         product_id: item._id,
         cantidad: Number(item.quantity),

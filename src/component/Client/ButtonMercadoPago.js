@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useAuth } from "../../service/AuthContext";
 import { postOrder } from "../../service/Redux/actions/cartActions";
 
 function ButtonMercadoPago({ cart }) {
@@ -12,11 +13,12 @@ function ButtonMercadoPago({ cart }) {
   const [preferenceId, setPreferenceId] = useState(null);
 
   const globalCart = useSelector((state) => state.cart);
+  const { user } = useAuth();
 
   const createPreference = async () => {
     try {
-      const newOrder = await postOrder(globalCart);
-      console.log(newOrder);
+      console.log(user);
+      const newOrder = await postOrder(globalCart, user);
       const response = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/mercadoPago/createPreference/${newOrder._id}`,
         cart
