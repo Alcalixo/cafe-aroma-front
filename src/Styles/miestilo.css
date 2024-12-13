@@ -1,0 +1,382 @@
+/*----------Estilos que representan la temática de la pagina----------*/
+.supertitulo {
+    margin-top: 2px;
+    text-align: center;
+    font-family: Comic Sans MS;
+    font-weight: bold;
+    font-size: 50px;
+    color: #EBD758;
+    text-shadow: -1px 0 #414D68, 0 1px #414D68, 1px 0 #414D68, 0 -1px #414D68, -2px 2px 0 #414D68, 2px 2px 0 #414D68, 1px 1px #414D68, 2px 2px #414D68, 3px 3px #414D68, 4px 4px #414D68, 5px 5px #414D68, 6px 6px #414D68, 7px 7px #414D68, 8px 8px #414D68, 9px 9px #414D68;
+}
+
+.supertexto {
+    margin-top: 2px;
+    text-align: justify;
+    font-family: Comic Sans MS;
+    font-weight: bold;
+    font-size: 25px;
+    color: #EBD758;
+    text-shadow: -1px 0 #414D68, 0 1px #414D68, 1px 0 #414D68, 0 -1px #414D68, -2px 2px 0 #414D68, 1px 1px 0 #414D68, 0px 0px #414D68, 1px 1px #414D68, 1px 1px #414D68, 2px 2px #414D68, 3px 3px #414D68, 3px 3px #414D68, 5px 5px #414D68, 5px 5px #414D68, 7px 7px #414D68;
+}
+
+img.basic {
+    display: block;
+    /* Para eliminar el espacio adicional que algunos navegadores agregan a las img. */
+    margin: 0 auto;
+    /* Centrar las imágenes horizontalmente */
+    max-width: 100%;
+    /* Asegurar que las imágenes no excedan el ancho del contenedor */
+    border: 3px solid #69bd45;
+    /* Contorno de 3px con un color verde (#69bd45) alrededor de la img.*/
+    border-radius: 10px;
+}
+
+/*
+.telcofont{
+    background-image: linear-gradient(to left, #00b1eb, #009338, #ccd500);
+    background-clip: text;
+    color: transparent;
+}
+*/
+/*----------Estilos del encabezado----------*/
+header {
+    background-color: #469624;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/*----------Estilos de la barra de navegacion----------*/
+nav {
+    background-color: #138417;
+    padding: 10px;
+}
+
+.separacion {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+}
+
+/* Adapto el estilo de supertitulo a los enlaces del navbar */
+nav ul li a.supertitulo {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-size: 20px;
+}
+
+nav ul li a.supertitulo:hover {
+    /*cuando se hace click*/
+    background-color: #16a840;
+    color: #61e7ee;
+}
+
+nav ul li a.supertitulo:focus {
+    /*cuando se pasa el mouse o touch o teclado */
+    background-color: #16a840;
+    color: #61e7ee;
+}
+
+nav ul li a.supertitulo:active {
+    /*cuando se presiona con el tactil pero no se clickea*/
+    background-color: #16a840;
+    color: #61e7ee;
+}
+
+.fondo_gris {
+    background-color: rgb(80, 78, 78);
+}
+
+nav ul li a.disable {
+    color: rgb(174, 171, 171);
+    text-decoration: none;
+    text-shadow: none;
+    background-color: rgb(49, 49, 49);
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-size: 20px;
+    pointer-events: none;
+    /* desactiva el hoover del navlink que trae bootstrap*/
+}
+
+#sesion{
+    font-size: 18px;
+    background-color: #183a89;
+}
+
+#baja:hover{
+    background-color: #c50623;
+    color: #61e7ee;
+}
+#baja:focus{
+    background-color: #c50623;
+    color: #61e7ee;
+}
+#baja:active{
+    background-color: #c50623;
+    color: #61e7ee;
+}
+
+/* Usar mintitulo si quiero destacar alguna subcategoria
+nav ul li a.mintitulo {
+    color: beige;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+nav ul li a.mintitulo:hover {
+    background-color: #16a840;
+    color:#61e7ee;
+}
+*/
+/*----------Estilos del cuerpo----------*/
+
+body {
+    background-color: beige;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    padding: 20px;
+    /* espaciado para la sección de 20 pixeles */
+}
+
+p.supertitulo {
+    text-justify: auto;
+    font-size: 25px;
+    text-align: center;
+    background-color: #138417;
+    padding: 10px;
+}
+
+p.texto2 {
+    font-size: 20px;
+    text-justify: auto;
+    text-align: center;
+    font-style: Arial;
+}
+
+span {
+    font-weight: bold;
+}
+
+/*--- login ---*/
+div.login {
+    background-size: contain;
+    /*hace que al bajar resoluciones se achique y se rellene */
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+/*--- registro ---*/
+
+div.registro {
+    background-image: none;
+    background-color: #d8e4e0;
+    background-size: contain;
+    /*hace que al bajar resoluciones se achique y se rellene */
+}
+
+#login {
+    text-justify: auto;
+    font-size: 35px;
+    text-align: center;
+    background-color: #0b630e;
+    background-size: contain;
+    padding: 10px;
+}
+
+.registro-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.registro-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.registro-row {
+    margin-bottom: 20px;
+}
+
+/*
+.centrado {
+    text-align: center;
+    font-weight: bold;
+    font-family: cursive; 
+}
+*/
+
+img.miimg {
+    width: 350px;
+    height: 400px;
+}
+
+img.miicono {
+    width: 100px;
+    height: 100px;
+}
+
+img.admin{
+    width: 50px;
+    height: 50px;
+}
+
+/*--- Estilos del Carrusel ---*/
+
+#carouselExample {
+    max-width: 1200px;
+    /* Ancho máximo del carrusel */
+    margin: 20px auto;
+    /* Margen superior e inferior, y centrado horizontalmente*/
+}
+
+/* Estilos del Carrusel */
+.carousel-container {
+    max-width: 100%; /* Asegúrate de que el contenedor no exceda el ancho de la pantalla */
+    overflow: hidden; /* Evita que las imágenes se desborden */
+    margin: 0 auto; /* Centra el contenedor del carrusel */
+}
+
+.carousel-item {
+    display: flex; /* Usar flexbox para centrar la imagen */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 60vh; /* Ajusta la altura del carrusel según sea necesario */
+}
+
+.carousel-inner img {
+    width: 100%; /* Las imágenes ocuparán el 100% del ancho del contenedor */
+    height: auto; /* Mantiene la proporción de aspecto de la imagen */
+    object-fit: cover; /* Cubre el área del contenedor sin distorsionar la imagen */
+    border-radius: 10px; /* Borde redondeado para las imágenes */
+}
+
+/* Boton de comprar */
+.btn-comprar {
+    background-color: #f7e35f;
+    color: #65eff6;
+    padding: 30px 50px;
+    font-size: 30px;
+    border-radius: 10px;
+    /* redondeo del borde */
+    border-width: 5px;
+    /* Ancho de borde de */
+    border-style: solid;
+    /* Estilo de borde */
+    border-color: #559b38;
+    /* Color del borde */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+/*----------Estilos de tarjetas de quienes somos ----------*/
+.card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra y profundidad */
+    background-color: #f7f7f7;
+    /* Fondo claro */
+    border-color: #ddd;
+    /* Borde gris claro */
+    border-radius: 10px;
+    /* Redondea las esquinas */
+
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    /* Efecto hover */
+}
+
+.card-img-top {
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    /* Redondea las esquinas superiores */
+}
+
+.card-body {
+    padding: 20px;
+    /* Espacio entre la imagen y el contenido */
+}
+
+.card-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: rgb(24, 24, 24);
+    /* Título oscuro */
+    font-size: 30px;
+}
+
+.card-text {
+    font-size: 18px;
+    color: rgb(50, 50, 50);
+    font-family: Comic Sans MS;
+    text-align: justify;
+    text-justify: auto;
+}
+
+.text-body-secondary {
+    color: #999;
+    /* Texto secundario gris claro */
+}
+
+.btn-primary:hover {
+    background-color: #23527c;
+    /* Botón primario azul oscuro */
+    border-color: #1d4e73;
+}
+
+
+
+/*----------Estilos del pie de pagina----------*/
+
+
+footer {
+    background-color: #138417;
+    /* Color de fondo del footer */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer a.supertitulo {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+
+footer a.supertitulo:hover {
+    background-color: #16a840;
+    color: #61e7ee;
+}
+
+.footer-content {
+    max-width: 800px;
+    /* Ancho máximo del contenido del footer */
+    margin: 0 auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    /* separar el contenido del footer horizontalmente */
+    display: inline-block;
+    justify-content: space-around;
+    /*permite mantener el sentido horizontal de los elementos */
+    color: #fff;
+    font-size: 20px;
+}
+
+
+#copyright {
+    font-size: 15px;
+}
