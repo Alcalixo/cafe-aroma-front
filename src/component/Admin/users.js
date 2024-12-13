@@ -6,12 +6,14 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { TiDelete } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsuarios } from "../../service/Redux/actions/usersActions";
+import { fetchProtectedData } from '../../service/apiService';
 
 function UserTable() {
   const dispatch = useDispatch();
   const usuarios = useSelector((state) => state.usuarios); // Selecciona usuarios del estado global
 
    useEffect(() => {
+    fetchProtectedData()
     dispatch(fetchUsuarios()); // Despacha la acción para obtener usuarios cuando el componente se monta
   }, [dispatch]);
 
@@ -53,7 +55,7 @@ function UserTable() {
                   <td>{usuario.ciudad}</td>
                   <td>{usuario.domicilio}</td>
                   <td>
-                    <Form.Control as="select" value={usuario.category}>
+                    <Form.Control as="select" value={usuario.categoria}>
                       <option value="administrador">Administrador</option>
                       <option value="cliente">Cliente</option>
                     </Form.Control>
