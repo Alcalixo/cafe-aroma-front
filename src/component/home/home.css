@@ -1,0 +1,45 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5dc; /* Beige claro */
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 800px; /* Ajusta el ancho máximo del carrusel */
+    margin: 20px 0; /* Espaciado vertical */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0; /* Espaciado vertical */
+}
+
+.view-products-button, .login-button {
+    margin: 10px; /* Espaciado entre botones */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.view-products-button {
+    background-color: #eeb770;
+    color: #fcfcfc;
+}
+
+.view-products-button:hover {
+    background-color: darkmagenta;
+}
+
+.login-button {
+    background-color: #6c757d; /* Color gris para el botón de inicio de sesión */
+    color: white;
+}
+
+.login-button:hover {
+    background-color: #5a6268; /* Color más oscuro al pasar el mouse */
+}
