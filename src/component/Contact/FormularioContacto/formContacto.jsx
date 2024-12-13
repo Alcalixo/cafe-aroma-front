@@ -30,7 +30,7 @@ function FormContacto() {
   const handleEnvio = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/api/contacto", form);
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/comentarios/crearComentario`, form);
       setEnviado(true);
     } catch (error) {
       alert("Hubo un problema al enviar el mensaje. Por favor, intenta nuevamente.");

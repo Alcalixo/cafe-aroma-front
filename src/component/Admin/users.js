@@ -6,12 +6,14 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { TiDelete } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsuarios } from "../../service/Redux/actions/usersActions";
+import { fetchProtectedData } from '../../service/apiService';
 
 function UserTable() {
   const dispatch = useDispatch();
   const usuarios = useSelector((state) => state.usuarios); // Selecciona usuarios del estado global
 
    useEffect(() => {
+    fetchProtectedData()
     dispatch(fetchUsuarios()); // Despacha la acción para obtener usuarios cuando el componente se monta
   }, [dispatch]);
 
@@ -29,22 +31,31 @@ function UserTable() {
           <Table striped className="tableUSer" border="warning">
             <thead>
               <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>User Name</th>
-                <th>Email</th>
-                <th>Category</th>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Usuario</th>
+                <th>Correo</th>
+                <th>Provincia</th>
+                <th>Ciudad</th>               
+                <th>Domicilio</th>
+                <th>Category</th>                
+                <th>Eliminado</th>
               </tr>
             </thead>
             <tbody>
               {usuarios.map((usuario) => (
-                <tr key={usuario.id}>
-                  <td>{usuario.id}</td>
-                  <td>{usuario.name}</td>
+                <tr key={usuario._id}>
+                  <td>{usuario.dni}</td>
+                  <td>{usuario.nombre}</td>
+                  <td>{usuario.apellido}</td>
                   <td>{usuario.username}</td>
                   <td>{usuario.email}</td>
+                  <td>{usuario.provincia}</td>
+                  <td>{usuario.ciudad}</td>
+                  <td>{usuario.domicilio}</td>
                   <td>
-                    <Form.Control as="select" value={usuario.category}>
+                    <Form.Control as="select" value={usuario.categoria}>
                       <option value="administrador">Administrador</option>
                       <option value="cliente">Cliente</option>
                     </Form.Control>
