@@ -13,6 +13,7 @@ import Footer from "./component/Layout/footer";
 import Header from "./component/Layout/header";
 import NavbarCafe from "./component/Layout/navbar";
 import { AuthProvider, useAuth } from "./service/AuthContext";
+import Crud from "./component/Admin/ProductManagment";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function MainRoutes() {
       <Route path="/contacto" element={<Contacto />} />
       {isAuthenticated ? (
         <>
+          <Route path="/crud" element={<Crud />} />
           <Route path="/listaUsuarios" element={<UserTable />} />
           <Route path="/cart" element={<Cart />} />
         </>

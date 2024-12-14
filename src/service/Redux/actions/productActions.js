@@ -1,15 +1,18 @@
 import axios from "axios";
 import { getProductos } from "../reducers/productosSlice"; // Importar la acción desde el slice
 
-// Acción para obtener todos los productos
+// Obtener el token de autenticación
+const getToken = () => {
+  return localStorage.getItem("token");
+};
+
+// Acción para obtener todos los productos (sin autorización)
 export const fetchProductos = () => {
   return async function (dispatch) {
     try {
-      console.log("Fetching productos..."); // Log
       const productos = (
-        await axios(`${process.env.REACT_APP_API_BASE_URL}/api/productos`)
+        await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/productos`)
       ).data;
-      console.log("Fetched productos:", productos); // Log
       dispatch(getProductos(productos));
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -17,12 +20,19 @@ export const fetchProductos = () => {
   };
 };
 
-// Acción para obtener un producto por ID
+// Acción para obtener un producto por ID (requiere autorización)
 export const fetchProductoById = (id) => {
   return async function (dispatch) {
     try {
       const producto = (
-        await axios(`${process.env.REACT_APP_API_BASE_URL}/api/productos/${id}`)
+        await axios.get(
+          `${process.env.REACT_APP_API_BASE_URL}/api/productos/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${getToken()}`,
+            },
+          }
+        )
       ).data;
       dispatch(getProductos(producto));
     } catch (error) {
@@ -31,29 +41,65 @@ export const fetchProductoById = (id) => {
   };
 };
 
-// Acción para eliminar un producto
+// Acción para eliminar un producto (requiere autorización)
 export const deleteProducto = (id) => {
   return async function (dispatch) {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/productos/${id}`);
-      // Despacha una acción para eliminar producto del estado si es necesario
+      await axios.delete(
+        `${process.env.REACT_APP_API_BASE_URL}/api/productos/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        }
+      );
+      dispatch(fetchProductos()); // Actualiza la lista de productos después de eliminar uno
     } catch (error) {
       console.error("Error deleting product:", error);
     }
   };
 };
 
-// Acción para actualizar un producto
+// Acción para actualizar un producto (requiere autorización)
 export const updateProducto = (id, data) => {
   return async function (dispatch) {
     try {
-      // Llamada a la API para obtener productos
       const updatedProducto = (
-        await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/productos/${id}`, data)
+        await axios.put(
+          `${process.env.REACT_APP_API_BASE_URL}/api/productos/${id}`,
+          data,
+          {
+            headers: {
+              Authorization: `Bearer ${getToken()}`,
+            },
+          }
+        )
       ).data;
-      // Despacha una acción para actualizar producto en el estado si es necesario
+      dispatch(fetchProductos()); // Actualiza la lista de productos después de actualizar uno
     } catch (error) {
       console.error("Error updating product:", error);
+    }
+  };
+};
+
+// Acción para crear un nuevo producto (requiere autorización)
+export const createProducto = (data) => {
+  return async function (dispatch) {
+    try {
+      const newProducto = (
+        await axios.post(
+          `${process.env.REACT_APP_API_BASE_URL}/api/productos`,
+          data,
+          {
+            headers: {
+              Authorization: `Bearer ${getToken()}`,
+            },
+          }
+        )
+      ).data;
+      dispatch(fetchProductos()); // Actualiza la lista de productos después de crear uno
+    } catch (error) {
+      console.error("Error creating product:", error);
     }
   };
 };
