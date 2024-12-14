@@ -4,7 +4,7 @@ import axios from "axios";
 export const postOrder = async (cart, user) => {
   try {
     const newOrder = {
-      user_id: user.id, // Reemplaza con el ID del usuario actual
+      user_id: user._id, // Reemplaza con el ID del usuario actual
       items: cart.map((item) => ({
         product_id: item._id,
         cantidad: Number(item.quantity),
