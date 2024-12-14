@@ -1,69 +1,66 @@
-.formbody-contacto{
-   
+.formbody-contacto {
     display: flex;
+    background-color: bisque;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center; /* Centrar el contenido del formulario */
     flex-direction: column;
-    height: 90vh;
-    width: 70%;
-
-}
-.contentContacto{
-    background-color: #fcfcfc;
-    border-radius: 40px;
-    position: relative;
-    overflow: hidden;
-    width: 50vw;
-    min-height: 480px;   
-    max-width: 100%;
-    
+    height: 90vh; /* Altura del formulario */
+    width: 70%; /* Ancho del formulario */
+    position: relative; /* Para permitir el posicionamiento absoluto de elementos internos si es necesario */
+    transition: transform 0.6s ease-in-out; /* Transición suave para el desplazamiento */
 }
 
-.contentContacto button{
-   background-color: #eeb770;
-   color: #fcfcfc;
-   padding: 10px 10px;
-   border: 1px solid transparent;
-   border-radius: 8px;
-   font-weight: 600;
-   letter-spacing: 0.5px;
-   text-transform: uppercase;
-   margin-top: 10px;
+.contentContacto button {
+    background-color: #eeb770;
+    color: #fcfcfc;
+    padding: 10px 10px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
 }
 
-btn:hover{
-   background-color: darkmagenta;
-
+.contentContacto button:hover {
+    background-color: darkmagenta;
 }
 
-.header-text h1, .forgot a{
+.header-text h1, .forgot a {
     color: #916832;
 }
-.right-box{
-  padding: 40px 30px 40px 40px;
+
+.right-box {
+    padding: 40px 30px 40px 40px;
 }
 
-.switch-content{
-  position: absolute;
-  top: 0;
-  right: 50%;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  transition: all 0.6s ease-in-out;
-  border-radius: 0 60px 60px 0;
-  z-index: 1000;
+.textArea {
+    width: 100%; /* Ajustar el ancho del área de texto */
+    max-width: 450px; /* Ancho máximo del área de texto */
 }
 
-.contentContacto.active .switch-content{
-    transform:translateX(100%);
+/* Estilos para el contenido de la transición */
+.switch-content {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 0 60px 60px 0;
+    z-index: 1000;
+}
+
+.contentContacto.active .switch-content {
+    transform: translateX(100%);
     border-radius: 60px 0 0 60px;
 }
 
-.switch{
+.switch {
     background-color: rgb(139, 0, 53);
     height: 100%;
-    color:#ffffff;
+    color: #ffffff;
     position: relative;
     left: -100%;
     height: 100%;
@@ -72,11 +69,11 @@ btn:hover{
     transition: all 0.6s ease-in-out;
 }
 
-.contentContacto.active .switch{
-    transform:translateX(50%);
+.contentContacto.active .switch {
+    transform: translateX(50%);
 }
 
-.switch-panel{
+.switch-panel {
     position: absolute;
     width: 50%;
     height: 100%;
@@ -91,25 +88,37 @@ btn:hover{
     transition: all 0.6s ease-in-out;
 }
 
-.switch-left{
+.switch-left {
     transform: translateX(-200%);
 }
 
-.contentContacto.active .switch-left{
+.contentContacto.active .switch-left {
     transform: translateX(0);
 }
 
-.switch-right{
+.switch-right {
     right: 0;
     transform: translateX(0);
 }
 
-.contentContacto.active .switch-right{
+.contentContacto.active .switch-right {
     transform: translateX(200%);
 }
-.textArea{
-    width: 450%;
-    
-}
 
+/* Estilos para hacer el diseño responsivo */
+@media (max-width: 768px) {
+    .formbody-contacto {
+        width: 90%; /* Ancho del formulario en pantallas pequeñas */
+        height: auto; /* Altura automática para adaptarse al contenido */
+    }
+
+    .contentContacto {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+    }
+
+    .switch-content {
+        width: 100%; /* Ancho completo para el contenido de la transición */
+    }
+}
 

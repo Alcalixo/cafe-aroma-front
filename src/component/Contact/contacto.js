@@ -1,32 +1,40 @@
-import React from "react";
-import './contacto.css'
-import CardList from './tarjeta/CardList'
-import logo from '../../assets/img/contactanos.png';
-import FormContacto from './FormularioContacto/formContacto'
-import  './FormularioContacto/formContacto.css'
+import React, { useState } from "react";
+import "./contacto.css";
+import CardList from "./tarjeta/CardList";
+import FormContacto from "./FormularioContacto/formContacto";
+import "./FormularioContacto/formContacto.css";
 
+function Contacto() {
+  const [showForm, setShowForm] = useState(false); // Estado para controlar la vista
 
+  const handleShowForm = () => {
+    setShowForm(true);
+  };
 
-function Contacto(){
-    return(
-        <>
-        <div className="logo_contacto">
-        <img src={logo} alt="Logo Cafe Aroma" />
-        
+  const handleShowComments = () => {
+    setShowForm(false);
+  };
+
+  return (
+    <>
+      <div className="contenedorContacto d-flex flex-wrap justify-content-center">
+        <div
+          className={`container-contacto ${
+            showForm ? "active" : ""
+          } col-md-6 col-lg-4`}
+        >
+          <CardList />
         </div>
-        <div className="contenedorContacto">
-           <div className="container-contacto">
-         
-              <CardList/>
-       
-            </div>
-            <div className="formbody-contacto">
-             <FormContacto/>  
-            </div> 
-         </div>
-         
-        </>
-    )
+        <div
+          className={`formbody-contacto ${
+            showForm ? "active" : ""
+          } col-md-6 col-lg-4`}
+        >
+          <FormContacto />
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Contacto;
