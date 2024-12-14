@@ -18,7 +18,7 @@ import { AuthProvider, useAuth } from "./service/AuthContext";
 function App() {
   return (
     <AuthProvider>
-      <Header />
+     
       <NavbarCafe />
       <MainRoutes />
       <Footer />

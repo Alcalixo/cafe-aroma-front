@@ -251,15 +251,16 @@ img.admin{
     display: flex; /* Usar flexbox para centrar la imagen */
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
-    height: 60vh; /* Ajusta la altura del carrusel según sea necesario */
+    
 }
 
 .carousel-inner img {
-    width: 100%; /* Las imágenes ocuparán el 100% del ancho del contenedor */
-    height: auto; /* Mantiene la proporción de aspecto de la imagen */
-    object-fit: cover; /* Cubre el área del contenedor sin distorsionar la imagen */
-    border-radius: 10px; /* Borde redondeado para las imágenes */
+    width: 100%; /* Mantiene el 100% del ancho */
+    height: auto; /* Ajusta la altura automáticamente para mantener la relación de aspecto */
+    object-fit: contain; /* Ajusta la imagen sin recortes */
 }
+
+
 
 /* Boton de comprar */
 .btn-comprar {
