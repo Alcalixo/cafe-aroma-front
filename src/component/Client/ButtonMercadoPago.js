@@ -36,7 +36,6 @@ function ButtonMercadoPago({ cart }) {
 
   const initialization = {
     preferenceId: preferenceId,
-    redirectMode: "blank",
   };
 
   const customization = {

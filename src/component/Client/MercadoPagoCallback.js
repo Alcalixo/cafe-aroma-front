@@ -1,29 +1,51 @@
-import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import pending from "../../assets/img/pending.gif";
+import rejected from "../../assets/img/rejected.gif";
+import success from "../../assets/img/success.gif";
+import "./MercadoPagoCallback.css";
 
-const MercadoPagoCallback = () => {
-  const [paymentStatus, setPaymentStatus] = useState(null);
+function MercadoPagoCallback() {
+  const { status } = useParams();
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const paymentId = params.get("payment_id");
-    const status = params.get("status");
-    const externalReference = params.get("external_reference");
-    const merchantOrderId = params.get("merchant_order_id");
-
-    if (paymentId && status) {
-      // Aquí puedes realizar las acciones necesarias en tu frontend
-      // Por ejemplo, mostrar un mensaje de éxito o error, actualizar el estado de la orden de compra, etc.
-      setPaymentStatus(status);
-    }
-  }, []);
-
-  if (paymentStatus === "approved") {
-    return <div>Pago aprobado!</div>;
-  } else if (paymentStatus === "pending") {
-    return <div>Pago pendiente...</div>;
+  if (status === "approved") {
+    return (
+      <div class="container text-center">
+        <div class="success-container">
+          <img id="success" src={success} alt="Sucess GIF" className="gif" />
+        </div>
+        <h1>Success</h1>
+        <p>La operación se ha completado exitosamente.</p>
+        {/* <a href="http://localhost:3000/">Volver</a> */}
+      </div>
+    );
+  } else if (status === "pending") {
+    return (
+      <div class="container text-center">
+        <div class="pending-container">
+          <img id="pending" src={pending} alt="Pending GIF" className="gif" />
+        </div>
+        <h1>Pending</h1>
+        <p>La información solicitada está pendiente de ser procesada.</p>
+        {/* <a href="http://localhost:3000/">Volver</a> */}
+      </div>
+    );
   } else {
-    return <div>Pago rechazado</div>;
+    return (
+      <div class="container text-center">
+        <div class="rejected-container">
+          <img
+            id="rejected"
+            src={rejected}
+            alt="Rejected GIF"
+            className="gif"
+          />
+        </div>
+        <h1>Rejected</h1>
+        <p>La operación se ha rechazado.</p>
+        {/* <a href="http://localhost:3000/">Volver</a> */}
+      </div>
+    );
   }
-};
+}
 
 export default MercadoPagoCallback;
