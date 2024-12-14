@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import About from "./component/About/about";
 import UserTable from "./component/Admin/users";
 import Cart from "./component/Client/cart";
+import MercadoPagoCallback from "./component/Client/MercadoPagoCallback";
 import Productos from "./component/Client/productos";
 import Contacto from "./component/Contact/contacto";
 import Login from "./component/Formularios/login";
@@ -18,7 +19,7 @@ import Crud from "./component/Admin/ProductManagment";
 function App() {
   return (
     <AuthProvider>
-      <Header />
+     
       <NavbarCafe />
       <MainRoutes />
       <Footer />
@@ -35,6 +36,10 @@ function MainRoutes() {
       <Route path="/productos" element={<Productos />} />
       <Route path="/about" element={<About />} />
       <Route path="/contacto" element={<Contacto />} />
+      <Route
+        path="/MercadoPagoCallback/:status"
+        element={<MercadoPagoCallback />}
+      />
       {isAuthenticated ? (
         <>
           <Route path="/crud" element={<Crud />} />
