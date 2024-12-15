@@ -165,21 +165,29 @@ function Home() {
 
 <div class="moving-text-container">
   <div class="moving-text">
-    <span>¡Descubre nuestra variedad de cafés! </span>
-    <span>Disfruta de un sabor único. </span>
-    <span>¡Prueba nuestra selección especial! </span>
-    <span>Cada taza de café cuenta una historia. </span>
-    <span>¡Despierta tu pasión por el café! </span>
-    <span>Descubre el sabor que hará tu día perfecto. </span>
-    <span>¡Un café para cada momento! </span>
+    <span>¡Descubre nuestra variedad de cafés!</span>
+    <span>Disfruta de un sabor único.</span>
+    <span>¡Prueba nuestra selección especial!</span>
+    <span>Cada taza de café cuenta una historia.</span>
+    <span>¡Despierta tu pasión por el café!</span>
+    <span>Descubre el sabor que hará tu día perfecto.</span>
+    <span>¡Un café para cada momento!</span>
     <span>¡No es solo café, es una experiencia!</span>
-    <span>¡Descubre nuestra variedad de cafés! </span>
-    <span>Disfruta de un sabor único. </span>
-    <span>¡Prueba nuestra selección especial! </span>
-    <span>Cada taza de café cuenta una historia. </span>
-    <span>¡Despierta tu pasión por el café! </span>
+    <span>¡Descubre nuestra variedad de cafés!</span>
+    <span>Disfruta de un sabor único.</span>
+    <span>¡Prueba nuestra selección especial!</span>
+    <span>Cada taza de café cuenta una historia.</span>
+    <span>¡Despierta tu pasión por el café!</span>
+    <span>Descubre el sabor que hará tu día perfecto.</span>
+    <span>¡Un café para cada momento!</span>
+    <span>¡No es solo café, es una experiencia!</span>
+    <span>¡Despierta tu pasión por el café!</span>
+    <span>Descubre el sabor que hará tu día perfecto.</span>
+    <span>¡Un café para cada momento!</span>
+    
   </div>
 </div>
+
 
   <section class="cta-section">
     <div class="cta-content">
