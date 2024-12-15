@@ -6,8 +6,8 @@ import "./about.css";
 
 function About() {
   return (
-    <Container>
-      <h2>Quienes Somos</h2>
+    <Container className="mt-3 pt-3">
+      {/* <h2>Quienes Somos</h2> */}
       <Row className="row row-cols-1 row-cols-md-3 g-4">
         {personal.map((persona) => (
           <Col key={persona.id} md={4} className="mb-4">
