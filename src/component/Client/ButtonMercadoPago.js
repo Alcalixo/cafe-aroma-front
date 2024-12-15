@@ -21,7 +21,12 @@ function ButtonMercadoPago({ cart }) {
       const newOrder = await postOrder(globalCart, user);
       const response = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/mercadoPago/createPreference/${newOrder._id}`,
-        cart
+        cart,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
       );
       const { id } = response.data;
       return id;

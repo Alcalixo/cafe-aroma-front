@@ -17,7 +17,12 @@ export const postOrder = async (cart, user) => {
     const orderSaved = (
       await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/ordenes/crearPedido`,
-        newOrder
+        newOrder,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
       )
     ).data;
     return orderSaved;
