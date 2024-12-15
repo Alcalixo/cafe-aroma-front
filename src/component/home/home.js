@@ -164,6 +164,7 @@ function Home() {
   </div>
 </section>
 
+
 <div class="moving-text-container">
   <div class="moving-text">
     <span>¡Descubre nuestra variedad de cafés!</span>
