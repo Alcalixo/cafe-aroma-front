@@ -118,7 +118,7 @@ function Home() {
   };
 
   return (
-    <div className="home-container">
+<div className="home-container">
       {showLogin && <Login setIsAuthenticated={() => setShowLogin(false)} />}{" "}
       {/* Mostrar el formulario de inicio de sesión si showLogin es true */}
       <div className="carousel-container">
@@ -139,6 +139,7 @@ function Home() {
       
       <section class="info-section">
       <h2 class="info-title">Impulsado por el arte del café y la pasión de las personas</h2>
+    
   <div class="info-container">
     <div class="info-card">
       <img src={icono1} alt="Café hecho a mano"/>
@@ -181,9 +182,6 @@ function Home() {
     <span>Descubre el sabor que hará tu día perfecto.</span>
     <span>¡Un café para cada momento!</span>
     <span>¡No es solo café, es una experiencia!</span>
-    <span>¡Despierta tu pasión por el café!</span>
-    <span>Descubre el sabor que hará tu día perfecto.</span>
-    <span>¡Un café para cada momento!</span>
     
   </div>
 </div>
@@ -193,7 +191,13 @@ function Home() {
     <div class="cta-content">
       <h2>Descubre Nuestros Mejores Cafés</h2>
       <p>Explora una selección única de granos frescos y tostados artesanalmente.</p>
-      <div className="button-container">
+    </div>
+    <div class="cta-image">
+      <img src={img03}  alt="Imagen de café artesanal"/>
+    </div>
+  </section>
+
+  <div className="button-container">
         <Button variant="primary" className="view-products-button">
           Ver Productos
         </Button>
@@ -203,19 +207,9 @@ function Home() {
         >
           Iniciar Sesión
         </Button>
-      </div>
-    </div>
-    <div class="cta-image">
-      <img src={img03}  alt="Imagen de café artesanal"/>
-    </div>
-  </section>
-
-
-      
-
-    
-      
-    </div>
+  </div>
+  
+</div>
   );
 }
 
