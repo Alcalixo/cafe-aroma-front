@@ -25,8 +25,8 @@
       height: 180px; /* Ajusta el alto */
 }
 .card-contacto:hover{
-    background-color: whitesmoke;
-    box-shadow: 0 0 50px white;
+    background-color: #790000;
+    box-shadow: 0 0 50px #790000;
 }
 
 .card_logo img{
@@ -38,21 +38,23 @@
 }
 
 .card_data{
-    color: brown;
+    color: #790000;
     transition: all .5s;
 }
 
 .card-contacto:hover>.card_data{
-    color: brown;
+    color: rgb(255, 203, 151);
     transform: translateX(-45%) scale(1.2);
 }
 
 .card-contacto:hover>.card_data p{
     display:grid;
+    color: rgb(255, 203, 151);
     
 }
 
 .card-contacto:hover>.card_logo img{
      border-radius: 50%;
+     color: #790000;
      transform: translateX(320%) scale(1.8);
 }

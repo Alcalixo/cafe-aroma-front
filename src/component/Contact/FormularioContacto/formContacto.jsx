@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function FormContacto() {
-  const [form, setForm] = useState({ email: "", mensaje: "" });
+  const [form, setForm] = useState({ email: "", asunto: "", descripcion: "" });
   const [enviado, setEnviado] = useState(false);
 
   useEffect(() => {
@@ -33,13 +33,23 @@ function FormContacto() {
       await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/comentarios/crearComentario`, form);
       setEnviado(true);
     } catch (error) {
-      alert("Hubo un problema al enviar el mensaje. Por favor, intenta nuevamente.");
+      if (error.response) {
+        // La solicitud se realizó y el servidor respondió con un código de estado que no está en el rango de 2xx
+        const errorMessage = error.response.data.error || "Hubo un problema al enviar el mensaje. Por favor, intenta nuevamente.";
+        alert(`Error: ${errorMessage}`);
+      } else if (error.request) {
+        // La solicitud se realizó pero no se recibió respuesta
+        alert("No se recibió respuesta del servidor. Por favor, intenta nuevamente.");
+      } else {
+        // Algo sucedió al configurar la solicitud que lanzó un error
+        alert("Error al enviar el mensaje: " + error.message);
+      }
     }
   };
 
   const handleVolver = () => {
     setEnviado(false);
-    setForm({ email: "", mensaje: "" });
+    setForm({ email: "", asunto: "", descripcion: "" });
   };
 
   return (
@@ -93,13 +103,24 @@ function FormContacto() {
                 />
               </div>
               <div className="input-group mb-3">
+              <input
+                  type="asunto"
+                  name="asunto"
+                  placeholder="Motivo"
+                  className="form-control form-control-lg bg-light fs-6"
+                  value={form.asunto}
+                  onChange={handleChange}
+                  required
+                />
+              </div>              
+              <div className="input-group mb-3">
                 <textarea
                   className="form-control"
                   id="exampleFormControlTextarea1"
                   rows="10"
-                  name="mensaje"
+                  name="descripcion"
                   placeholder="Escribe tu mensaje aquí..."
-                  value={form.mensaje}
+                  value={form.descripcion}
                   onChange={handleChange}
                   required
                 />
