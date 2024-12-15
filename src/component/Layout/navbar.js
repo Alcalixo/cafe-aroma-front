@@ -105,9 +105,10 @@ function NavbarCafe() {
                   >
                     Editar Mis Datos
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} onClick={DarmeDeBaja}>
+                  {/* <NavDropdown.Item as={Link} onClick={DarmeDeBaja}>
                     Darme de Baja
-                  </NavDropdown.Item>
+                  </NavDropdown.Item> */}
+                  <DarmeDeBaja />
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="#" onClick={logout}>
                     Cerrar Sesión
