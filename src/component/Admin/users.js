@@ -1,34 +1,82 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./user.css";
 import Table from "react-bootstrap/Table";
-//import users from "../../service/db/usersDB";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Modal } from "react-bootstrap";
 import { TiDelete } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsuarios } from "../../service/Redux/actions/usersActions";
-import { fetchProtectedData } from '../../service/apiService';
+import {
+  fetchUsuarios,
+  deleteUsuario,
+  changeToClient,
+  changeToAdmin,
+} from "../../service/Redux/actions/usersActions";
 
-function UserTable() {
+const UserTable = () => {
   const dispatch = useDispatch();
-  const usuarios = useSelector((state) => state.usuarios); // Selecciona usuarios del estado global
+  const usuarios = useSelector((state) => state.usuarios);
 
-   useEffect(() => {
-    fetchProtectedData()
-    dispatch(fetchUsuarios()); // Despacha la acción para obtener usuarios cuando el componente se monta
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [userCategories, setUserCategories] = useState({});
+
+  useEffect(() => {
+    dispatch(fetchUsuarios());
   }, [dispatch]);
 
-  console.log('Usuarios:', usuarios); // Log para verificar los datos
+  useEffect(() => {
+    // Inicializa las categorías actuales en un objeto de estado
+    const initialCategories = {};
+    usuarios.forEach((usuario) => {
+      initialCategories[usuario._id] = usuario.categoria;
+    });
+    setUserCategories(initialCategories);
+  }, [usuarios]);
 
+  const handleDelete = (usuario) => {
+    setSelectedUser(usuario);
+    setShowDeleteModal(true);
+  };
+
+  const confirmDelete = () => {
+    if (selectedUser) {
+      dispatch(deleteUsuario(selectedUser._id));
+      setShowDeleteModal(false);
+      dispatch(fetchUsuarios());
+    }
+  };
+
+  const handleUpdate = (usuario) => {
+    setSelectedUser(usuario);
+    setShowUpdateModal(true);
+  };
+
+  const confirmUpdate = () => {
+    if (selectedUser) {
+      const newCategory = userCategories[selectedUser._id];
+      if (newCategory === "cliente") {
+        dispatch(changeToClient(selectedUser._id));
+      } else if (newCategory === "admin") {
+        dispatch(changeToAdmin(selectedUser._id));
+      }
+      setShowUpdateModal(false);
+      dispatch(fetchUsuarios());
+    }
+  };
+
+  const handleCategoryChange = (e, usuarioId) => {
+    setUserCategories({ ...userCategories, [usuarioId]: e.target.value });
+  };
   if (!Array.isArray(usuarios)) {
     return <p>Cargando usuarios...</p>;
-  } // Renderizar algo mientras se cargan los datos
-  
+  }
+
   return (
     <Container>
       <Row>
         <h2>Lista de Usuarios</h2>
         <Col>
-          <Table striped className="tableUSer" border="warning">
+          <Table striped className="tableUser" border="warning">
             <thead>
               <tr>
                 <th>DNI</th>
@@ -37,10 +85,11 @@ function UserTable() {
                 <th>Usuario</th>
                 <th>Correo</th>
                 <th>Provincia</th>
-                <th>Ciudad</th>               
+                <th>Ciudad</th>
                 <th>Domicilio</th>
-                <th>Category</th>                
-                <th>Eliminado</th>
+                <th>Category</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
               </tr>
             </thead>
             <tbody>
@@ -55,13 +104,28 @@ function UserTable() {
                   <td>{usuario.ciudad}</td>
                   <td>{usuario.domicilio}</td>
                   <td>
-                    <Form.Control as="select" value={usuario.categoria}>
-                      <option value="administrador">Administrador</option>
+                    <Form.Control
+                      as="select"
+                      value={userCategories[usuario._id] || usuario.categoria}
+                      onChange={(e) => handleCategoryChange(e, usuario._id)}
+                    >
+                      <option value="admin">Administrador</option>
                       <option value="cliente">Cliente</option>
                     </Form.Control>
                   </td>
                   <td>
-                    <Button variant="warning">
+                    <Button
+                      variant="primary"
+                      onClick={() => handleUpdate(usuario)}
+                    >
+                      Actualizar
+                    </Button>
+                  </td>
+                  <td>
+                    <Button
+                      variant="danger"
+                      onClick={() => handleDelete(usuario)}
+                    >
                       <TiDelete />
                     </Button>
                   </td>
@@ -71,8 +135,45 @@ function UserTable() {
           </Table>
         </Col>
       </Row>
+
+      <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirmar Eliminación</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          ¿Estás seguro de que deseas eliminar al usuario {selectedUser?.nombre}{" "}
+          {selectedUser?.apellido}?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+            Cancelar
+          </Button>
+          <Button variant="danger" onClick={confirmDelete}>
+            Eliminar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showUpdateModal} onHide={() => setShowUpdateModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirmar Actualización</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          ¿Estás seguro de que deseas cambiar la categoría del usuario
+          {selectedUser?.nombre} {selectedUser?.apellido} a :
+          {userCategories[selectedUser?._id]}?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowUpdateModal(false)}>
+            Cancelar
+          </Button>
+          <Button variant="primary" onClick={confirmUpdate}>
+            Actualizar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
-}
+};
 
 export default UserTable;

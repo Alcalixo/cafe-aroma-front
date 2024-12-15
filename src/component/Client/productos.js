@@ -47,7 +47,7 @@ function Productos() {
                 <Card.Title>{producto.name}</Card.Title>
                 <Card.Text>{producto.description}</Card.Text>
                 <Card.Text>Precio: ${producto.precio}</Card.Text>
-                <Card.Text>Disponibilidad:{producto.Stock} </Card.Text>
+                <Card.Text>Disponibilidad:{producto.stock} </Card.Text>
                 <Button
                   variant="warning"
                   onClick={() => handleAddCart(producto)}

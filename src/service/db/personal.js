@@ -45,6 +45,16 @@ const personal = [
     linkedin: "https://www.linkedin.com/in/corralesfernando",
     github: "https://github.com/fscorrales",
   },
+  {
+    id: 5,
+    nombre: "Gonzalo N. Rodríguez",
+    imagen:
+      "https://i.ibb.co/jVt6Sjz/perfil.jpg",
+    descripcion:
+      "Estudiante avanzado en la carrera Contador Público, con experiencia en trabajo en equipo, con enfoque en el detalle y control del flujo de trabajo. Desarrollador Full Stack Junior.",
+    linkedin: "https://www.linkedin.com/in/rodriguez-gonzalo",
+    github: "https://github.com/Alcalixo",
+  },
 ];
 
 export default personal;
