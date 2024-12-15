@@ -1,10 +1,15 @@
 import axios from "axios";
 import { getUsuarios } from "../reducers/usuariosSlice"; // Importar la acción desde el slice
 
+// Obtener el token de autenticación
+const getToken = () => {
+  return localStorage.getItem("token");
+};
+
 // Acción para obtener todos los usuarios
 export const fetchUsuarios = () => {
   return async function (dispatch) {
-    const token = localStorage.getItem("token");
+    const token = getToken();
     if (!token) {
       console.error("No token found");
       return;
@@ -29,9 +34,17 @@ export const fetchUsuarios = () => {
 // Acción para obtener un usuario por ID
 export const fetchUsuarioById = (id) => {
   return async function (dispatch) {
+    const token = getToken();
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
     try {
       const usuario = (
-        await axios(`${process.env.REACT_APP_API_BASE_URL}/api/users/${id}`)
+        await axios.get(
+          `${process.env.REACT_APP_API_BASE_URL}/api/users/${id}`,
+          { headers: { Authorization: `Bearer ${token}` } }
+        )
       ).data;
       dispatch(getUsuarios(usuario));
     } catch (error) {
@@ -43,11 +56,17 @@ export const fetchUsuarioById = (id) => {
 // Acción para eliminar un usuario
 export const deleteUsuario = (id) => {
   return async function (dispatch) {
+    const token = getToken();
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
     try {
       await axios.delete(
-        `${process.env.REACT_APP_API_BASE_URL}/api/users/admin/destruirUsuario/${id}`
+        `${process.env.REACT_APP_API_BASE_URL}/api/users/admin/destruirUsuario/${id}`,
+        { headers: { Authorization: `Bearer ${token}` } }
       );
-      // Despacha una acción para eliminar usuario del estado si es necesario
+      dispatch(fetchUsuarios()); // Actualiza la lista de usuarios después de eliminar uno
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -57,17 +76,66 @@ export const deleteUsuario = (id) => {
 // Acción para actualizar un usuario
 export const updateUsuario = (id, data) => {
   return async function (dispatch) {
+    const token = getToken();
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
     try {
-      // Llamada a la API para obtener usuarios
       const updatedUsuario = (
         await axios.put(
           `${process.env.REACT_APP_API_BASE_URL}/api/users/editarUsuario/${id}`,
-          data
+          data,
+          { headers: { Authorization: `Bearer ${token}` } }
         )
       ).data;
-      // Despacha una acción para actualizar usuario en el estado si es necesario
+      dispatch(fetchUsuarios()); // Actualiza la lista de usuarios después de actualizar uno
     } catch (error) {
       console.error("Error updating user:", error);
+    }
+  };
+};
+
+// Acción para actualizar la categoría de usuario a cliente
+export const changeToClient = (_id) => {
+  return async function (dispatch) {
+    const token = getToken();
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
+    try {
+      const updatedUsuario = (
+        await axios.patch(
+          `${process.env.REACT_APP_API_BASE_URL}/api/users/admin/changeClient/${_id}`,
+          { _id: _id },
+          { headers: { Authorization: `Bearer ${token}` } }
+        )
+      ).data;
+      dispatch(fetchUsuarios());
+    } catch (error) {
+      console.error("Error changing user to client:", error);
+    }
+  };
+}; // Acción para actualizar la categoría de usuario a administrador
+export const changeToAdmin = (_id) => {
+  return async function (dispatch) {
+    const token = getToken();
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
+    try {
+      const updatedUsuario = (
+        await axios.patch(
+          `${process.env.REACT_APP_API_BASE_URL}/api/users/admin/changeAdmin/${_id}`,
+          { _id: _id },
+          { headers: { Authorization: `Bearer ${token}` } }
+        )
+      ).data;
+      dispatch(fetchUsuarios());
+    } catch (error) {
+      console.error("Error changing user to admin:", error);
     }
   };
 };
