@@ -86,10 +86,14 @@
 import React, { useState, useEffect } from "react";
 import { Carousel, Button } from "react-bootstrap";
 import Login from "../../component/Formularios/login"; // Asegúrate de que la ruta sea correcta
-import FeaturedProducts from '../../component/FeaturedProducts/FeaturedProducts'; // Asegúrate de importar el componente correctamente
 import "./home.css";
 import img01 from "../../assets/img/img01.jpg";
 import img02 from "../../assets/img/img02.jpg";
+import img03 from "../../assets/img/img03.jpg";
+import icono1 from "../../assets/img/biology.png";
+import icono2 from "../../assets/img/coffee.png";
+import icono3 from "../../assets/img/handshake.png";
+import icono4 from "../../assets/img/hot-coffee.png";
 
 
 function Home() {
@@ -132,25 +136,77 @@ function Home() {
           </Carousel.Item>
         </Carousel>
       </div>
+      
+      <section class="info-section">
+      <h2 class="info-title">Impulsado por el arte del café y la pasión de las personas</h2>
+  <div class="info-container">
+    <div class="info-card">
+      <img src={icono1} alt="Café hecho a mano"/>
+      <h3>ELABORACIÓN ARTESANAL PRARA CADA TAZA</h3>
+      <p> Cada grano de café es seleccionado a mano y tostado artesanalmente para ofrecerte una experiencia única. Nuestro objetivo es brindar un sabor excepcional que conecta a las personas en cada mesa.</p>
+    </div>
+    <div class="info-card">
+      <img src={icono2} alt="Amor por los frijoles"/>
+      <h3>PASIÓN EN CADA MOMENTO</h3>
+      <p> Nos apasiona el café desde la planta hasta tu taza. Cuidamos cada proceso, asegurando calidad y frescura que respetan los sabores y aromas naturales del grano</p>
+    </div>
+    <div class="info-card">
+      <img src={icono3} alt="Comunidad global del café"/>
+      <h3>UNIENDO A PRODUCTORES Y AMANTES DEL CAFÉ</h3>
+      <p> Trabajamos directamente con agricultores y cooperativas locales para garantizar un comercio justo y sostenible, creando una cadena de valor que beneficia a todos.</p>
+    </div>
+    <div class="info-card">
+      <img src={icono4}alt="No es tu promedio tostador"/>
+      <h3>NO ES SOLO CAFÉ, ES UNA EXPERIENCIA</h3>
+      <p>Exploramos nuevas técnicas de tostado y preparación para ofrecerte sabores innovadores que deleitan a conocedores y aficionados por igual.</p>
+    </div>
+  </div>
+</section>
 
-      <h2>Productos Destacados</h2>
-      <FeaturedProducts products={products} /> {/* Pasa los productos al componente FeaturedProducts */}
-      <div className="button-container">
-        <Button variant="primary">Ver más productos</Button>
-      </div>
+<div class="moving-text-container">
+  <div class="moving-text">
+    <span>¡Descubre nuestra variedad de cafés! </span>
+    <span>Disfruta de un sabor único. </span>
+    <span>¡Prueba nuestra selección especial! </span>
+    <span>Cada taza de café cuenta una historia. </span>
+    <span>¡Despierta tu pasión por el café! </span>
+    <span>Descubre el sabor que hará tu día perfecto. </span>
+    <span>¡Un café para cada momento! </span>
+    <span>¡No es solo café, es una experiencia!</span>
+    <span>¡Descubre nuestra variedad de cafés! </span>
+    <span>Disfruta de un sabor único. </span>
+    <span>¡Prueba nuestra selección especial! </span>
+    <span>Cada taza de café cuenta una historia. </span>
+    <span>¡Despierta tu pasión por el café! </span>
+  </div>
+</div>
 
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Descubre Nuestros Mejores Cafés</h2>
+      <p>Explora una selección única de granos frescos y tostados artesanalmente.</p>
       <div className="button-container">
         <Button variant="primary" className="view-products-button">
           Ver Productos
         </Button>
         <Button
-          variant="secondary"
-          className="login-button"
+          variant="secondary"  className="login-button"
           onClick={handleLoginClick}
         >
           Iniciar Sesión
         </Button>
       </div>
+    </div>
+    <div class="cta-image">
+      <img src={img03}  alt="Imagen de café artesanal"/>
+    </div>
+  </section>
+
+
+      
+
+    
+      
     </div>
   );
 }

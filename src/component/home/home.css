@@ -43,3 +43,149 @@
 .login-button:hover {
     background-color: #5a6268; /* Color más oscuro al pasar el mouse */
 }
+
+/* Sección principal */
+.info-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color:#f5f5dc;/* Color de fondo */
+    margin-top: 35px;
+  }
+  
+  .info-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  /* Contenedor de las tarjetas */
+  .info-container {
+    display: flex;
+    justify-content: space-around; /* Distribuye los elementos horizontalmente */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en pantallas pequeñas */
+    gap: 1.5rem;
+  }
+  
+  /* Tarjetas individuales */
+  .info-card {
+    flex: 1 1 calc(25% - 1.5rem); /* 4 tarjetas en línea con espacio */
+    max-width: 290px; /* Ancho máximo de cada tarjeta */
+    text-align: center;
+  }
+  
+  .info-card img {
+    width: 80px; /* Tamaño del icono */
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .info-card h3 {
+    font-size: 1rem;
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+  
+  .info-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+  }
+
+ /* llamado a la accion */
+ .cta-section {
+        max-height: 400px; /* Limita la altura máxima */
+        margin: 0 auto; /* Centra el contenedor horizontalmente */
+        display: flex;
+        align-items: center; /* Centra verticalmente el contenido */
+        justify-content: center; /* Centra horizontalmente */
+        padding: 1rem; /* Ajusta el relleno */
+        box-sizing: border-box; /* Evita que padding sume al tamaño total */
+        margin-top: 25px;
+  }
+  
+  .cta-content {
+    flex: 1;
+    max-width: 50%;
+    padding: 25px;
+    text-align: left;
+  }
+  
+  .cta-content h2 {
+    font-size: 2.5rem;
+    color: #4b3829;
+    margin-bottom: 10px;
+  }
+  
+  .cta-content p {
+    font-size: 1.2rem;
+    color: #6e6e6e;
+    margin-bottom: 25px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #8b5e34; /* Un tono café oscuro */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #6e3d22; /* Un tono más oscuro al pasar el ratón */
+  }
+  
+  .cta-image {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cta-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Hace que la imagen se ajuste sin deformarse */
+        border-radius: 10px; /* Opcional: para bordes redondeados */ 
+  }
+
+  /*info en movimiento*/
+  .moving-text-container {
+    width: 100%;
+    height: 90px;  /* Ajusta la altura del contenedor según lo necesites */
+    overflow: hidden;
+    background-color: #6e3d22;
+    display: flex;
+    white-space: nowrap;
+    justify-content: flex-start;  /* Centra las frases dentro del contenedor */
+    align-items: center;  /* Centra las frases verticalmente */
+  }
+  
+  
+  .moving-text {
+    display: flex;  /* Usamos flexbox para que las frases se organicen en línea */
+    animation: move-text 80s linear infinite;  /* Movimiento lento y continuo */
+  }
+  
+  .moving-text span {
+    display: inline-block;
+    font-size: 2rem;  /* Tamaño de texto más grande */
+    padding: 0 60px; /* Espacio entre las frases */
+    margin-right: 1px;  /* Espaciado entre frases */
+    font-weight: bold;  /* Para darle énfasis al texto */
+  }
+  
+  @keyframes move-text {
+    0% {
+      transform: translateX(100%); /* Comienza desde el lado derecho */
+    }
+    100% {
+      transform: translateX(-100%); /* Termina en el lado izquierdo */
+    }
+  }
+  
+  
+  
+  
