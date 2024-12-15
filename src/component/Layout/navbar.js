@@ -3,8 +3,6 @@
 
 // // NavbarCafe.js
 import React from "react";
-import "../../Styles/miestilo.css"; // Asegúrate de que la ruta sea correcta
-import "./navbar.css";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -12,10 +10,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoCartOutline } from "react-icons/io5";
-import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo-cafe-aroma.png"; // Importa el logo
 import { useAuth } from "../../service/AuthContext"; // Importa el contexto de autenticación
+import "../../Styles/miestilo.css"; // Asegúrate de que la ruta sea correcta
+import DarmeDeBaja from "../Client/DarmeDeBaja";
+import "./navbar.css";
 
 function NavbarCafe() {
   const cart = useSelector((state) => state.cart);
@@ -104,9 +105,10 @@ function NavbarCafe() {
                   >
                     Editar Mis Datos
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/darme_de_baja">
+                  {/* <NavDropdown.Item as={Link} onClick={DarmeDeBaja}>
                     Darme de Baja
-                  </NavDropdown.Item>
+                  </NavDropdown.Item> */}
+                  <DarmeDeBaja />
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to="#" onClick={logout}>
                     Cerrar Sesión
