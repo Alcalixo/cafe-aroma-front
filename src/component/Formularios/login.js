@@ -3,6 +3,7 @@ import axios from "axios";
 import "./login.css";
 import { useAuth } from "../../service/AuthContext"; // Importa el contexto de autenticación
 import { jwtDecode } from "jwt-decode";
+import { Container } from "react-bootstrap";
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" }); // Estado para el formulario de inicio
@@ -101,6 +102,7 @@ function Login() {
   };
 
   return (
+    <Container className="loginContainer">
     <div className="bodyLogin">
       <div
         className="contentLogin justify-content-center align-items-center d-flex shadow-lg"
@@ -262,6 +264,7 @@ function Login() {
         </div>
       </div>
     </div>
+    </Container>
   );
 }
 
