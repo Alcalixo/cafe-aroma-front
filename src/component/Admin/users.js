@@ -60,16 +60,17 @@ const UserTable = () => {
         dispatch(changeToAdmin(selectedUser._id));
       }
       setShowUpdateModal(false);
-      dispatch(fetchUsuarios());
+      // dispatch(fetchUsuarios());
     }
   };
 
   const handleCategoryChange = (e, usuarioId) => {
-    setUserCategories({ ...userCategories, [usuarioId]: e.target.value });
+    const value = e.target.value;
+    setUserCategories((prevCategories) => ({
+      ...prevCategories,
+      [usuarioId]: value,
+    }));
   };
-  if (!Array.isArray(usuarios)) {
-    return <p>Cargando usuarios...</p>;
-  }
 
   return (
     <Container>
@@ -103,22 +104,14 @@ const UserTable = () => {
                   <td>{usuario.provincia}</td>
                   <td>{usuario.ciudad}</td>
                   <td>{usuario.domicilio}</td>
-                  <td>
-                    <Form.Control
-                      as="select"
-                      value={userCategories[usuario._id] || usuario.categoria}
-                      onChange={(e) => handleCategoryChange(e, usuario._id)}
-                    >
-                      <option value="admin">Administrador</option>
-                      <option value="cliente">Cliente</option>
-                    </Form.Control>
-                  </td>
+                  <td className="categoryColumn">{usuario.categoria}</td>
                   <td>
                     <Button
                       variant="primary"
                       onClick={() => handleUpdate(usuario)}
                     >
-                      Actualizar
+                      Cambiar a{" "}
+                      {usuario.categoria === "cliente" ? "admin" : "cliente"}
                     </Button>
                   </td>
                   <td>
@@ -141,7 +134,7 @@ const UserTable = () => {
           <Modal.Title>Confirmar Eliminación</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          ¿Estás seguro de que deseas eliminar al usuario {selectedUser?.nombre}{" "}
+          ¿Estás seguro de que deseas eliminar al usuario {selectedUser?.nombre}
           {selectedUser?.apellido}?
         </Modal.Body>
         <Modal.Footer>
@@ -159,9 +152,11 @@ const UserTable = () => {
           <Modal.Title>Confirmar Actualización</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          ¿Estás seguro de que deseas cambiar la categoría del usuario
-          {selectedUser?.nombre} {selectedUser?.apellido} a :
-          {userCategories[selectedUser?._id]}?
+          {" "}
+          ¿Estás seguro de que deseas cambiar la categoría del usuario{" "}
+          {selectedUser?.nombre} {selectedUser?.apellido} de{" "}
+          {selectedUser?.categoria} a{" "}
+          {selectedUser?.categoria === "cliente" ? "admin" : "cliente"}?{" "}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowUpdateModal(false)}>
