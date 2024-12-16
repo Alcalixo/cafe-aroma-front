@@ -1,20 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import FormSelect from "react-bootstrap/FormSelect";
 import { TiShoppingCart } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductos } from "../../service/Redux/actions/productActions";
 import { addCart } from "../../service/Redux/reducers/cartSlice";
+import { SearchContext } from "../../service/SearchContext";
 import Paginacion from "./Paginacion";
 import "./productos.css";
 
 function Productos() {
+  const { searchTerm } = useContext(SearchContext);
   const dispatch = useDispatch();
   const productos = useSelector((state) => state.productos); // Selecciona productos del estado global
   const cart = useSelector((state) => state.cart); // Selecciona el carrito del estado global (opcional para verificar)
   const [paginaActual, setPaginaActual] = useState(1);
   const [productosPorPagina, setProductosPorPagina] = useState(4);
-  const totalDeProductos = productos.length;
+
+  const filteredProducts = productos.filter((product) => {
+    return product.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
+  const totalDeProductos = filteredProducts.length;
 
   const ultimoIndice = productosPorPagina * paginaActual;
   const primerIndice = ultimoIndice - productosPorPagina;
@@ -43,7 +50,7 @@ function Productos() {
     <Container className="mt-3 pt-3">
       {/* <h2>Nuestros Productos</h2> */}
       <Row>
-        {productos.slice(primerIndice, ultimoIndice).map((producto) => (
+        {filteredProducts.slice(primerIndice, ultimoIndice).map((producto) => (
           <Col key={producto._id} xs={12} sm={6} md={4} lg={3} className="mb-4">
             <Card className="card-zoom h-100" border="warning">
               <Card.Img
