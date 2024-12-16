@@ -75,22 +75,16 @@ function Productos() {
                 <Card.Text>{producto.description}</Card.Text>
                 <Card.Text>Precio: ${producto.precio}</Card.Text>
                 <Card.Text>Disponibilidad:{producto.stock} </Card.Text>
-                {isAuthenticated && user?.categoria === "cliente" && (
-                  <Button
-                    variant="warning"
-                    onClick={() => handleAddCart(producto)}
-                  >
-                    <TiShoppingCart /> Agregar al Carrito
-                  </Button>
-                )}
               </Card.Body>
-              <Button
-                variant="warning"
-                style={{ marginBottom: "10px" }}
-                onClick={() => handleAddCart(producto)}
-              >
-                <TiShoppingCart /> Agregar al Carrito
-              </Button>
+              {isAuthenticated && user?.categoria === "cliente" && (
+                <Button
+                  variant="warning"
+                  onClick={() => handleAddCart(producto)}
+                  style={{ marginBottom: "10px" }}
+                >
+                  <TiShoppingCart /> Agregar al Carrito
+                </Button>
+              )}
             </Card>
           </Col>
         ))}

@@ -19,13 +19,13 @@ import { SearchProvider } from "./service/SearchContext";
 
 function App() {
   return (
-    <AuthProvider>
-      <SearchProvider>
+    <SearchProvider>
+      <AuthProvider>
         <NavbarCafe />
         <MainRoutes />
         <Footer />
-      </SearchProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </SearchProvider>
   );
 }
 
