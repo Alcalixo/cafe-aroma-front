@@ -1,0 +1,46 @@
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+.body{
+    background-color:rgb(207, 172, 120);
+    font-family: "Roboto", sans-serif;
+}
+
+.container-contacto{
+    /*height: 98vh;*/
+    display: grid;
+    justify-content:center;
+    align-items:center;
+   /* width: 30%;*/
+}
+.formulario-contacto{
+  color: brown;
+  justify-content:right;
+    align-items:center;
+}
+
+.logo_contacto img{
+  height: 400px;
+  width: 1350px;
+}
+.contenedorContacto{
+  display: flex;
+  /*gap: 45px;*/
+}
+
+body {
+  background-image: url('../../assets/img/img04.jpg'); /* Ruta de la imagen */
+  background-size: cover; /* Para cubrir toda la página */
+  background-position: center; /* Centrar la imagen */
+  background-repeat: no-repeat; /* Evitar que la imagen se repita */
+  background-attachment: fixed; /* Mantener la imagen fija al hacer scroll */
+  margin: 0; /* Eliminar márgenes por defecto */
+  min-height: 100vh; /* Asegurarse de que el body tenga al menos la altura de la ventana */
+}

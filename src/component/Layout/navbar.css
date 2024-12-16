@@ -1,0 +1,87 @@
+/* Estilos del Navbar */
+.navbar-custom {
+  background-color: #790000; /* Color de fondo oscuro (rojo) */
+  padding: 10px 20px; /* Espaciado interno */
+  position: fixed; /* Fija el navbar en la parte superior */
+  width: 100%; /* Asegura que el navbar ocupe todo el ancho */
+  z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
+}
+
+.navbar-custom .nav-link {
+  color: #ffffff; /* Color del texto (blanco) */
+  font-size: 18px; /* Tamaño de fuente aumentado */
+  font-weight: 500; /* Peso de fuente más llamativo */
+  margin: 0 10px; /* Espaciado entre enlaces */
+  transition: color 0.3s, background-color 0.3s; /* Transición suave para el color y fondo */
+  padding: 10px 15px; /* Espaciado interno para el enlace */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.navbar-custom .nav-link:hover {
+  color: #790000; /* Color del texto al pasar el mouse (rojo oscuro) */
+  background-color: rgb(255, 203, 151); /* Color de fondo al pasar el mouse (color claro) */
+  }
+
+.navbar-custom .nav-link.active {
+  font-weight: bold; /* Resaltar el enlace activo */
+  color: #EBD758; /* Color del enlace activo (amarillo) */
+  background-color: rgb(255, 203, 151); /* Color de fondo activo (color claro) */
+}
+
+.navbar-custom .navbar-brand img {
+  max-height: 60px; /* Altura máxima del logo */
+}
+
+.navbar-custom .dropdown-menu {
+  background-color: #f5c6a5; /* Fondo sólido y más claro del dropdown */
+  border: none; /* Sin borde */
+}
+
+.navbar-custom .dropdown-item {
+  color: #4a1c1c; /* Color del texto de los elementos del dropdown (más oscuro) */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave para el fondo y color */
+}
+
+.navbar-custom .dropdown-item:hover {
+  background-color: #790000; /* Color de fondo al pasar el mouse (rojo oscuro) */
+  color: rgb(255, 203, 151); /* Color del texto al pasar el mouse (color claro) */
+  font-size: 18px; /* Tamaño de fuente aumentado */
+  font-weight: 500; /* Peso de fuente más llamativo */
+}
+
+.navbar-custom .dropdown-divider {
+  background-color: #790000; /* Color del divisor en el dropdown */
+  font-size: 25px; /* Tamaño de fuente aumentado */
+  font-weight: 700; /* Peso de fuente más llamativo */
+}
+
+.cart-link-container {
+  position: relative; /* Para posicionar el contador del carrito */
+}
+
+.cart-icon {
+  font-size: 24px; /* Tamaño del icono del carrito */
+  color: #ffffff; /* Color del icono */
+}
+
+.cart-count {
+  position: absolute; /* Posicionamiento absoluto */
+  top: -5px; /* Ajustar la posición vertical */
+  right: -10px; /* Ajustar la posición horizontal */
+  background-color: #ff4757; /* Color de fondo del contador */
+  color: #ffffff; /* Color del texto del contador */
+  border-radius: 50%; /* Bordes redondeados */
+  padding: 2px 6px; /* Espaciado interno */
+  font-size: 12px; /* Tamaño de fuente del contador */
+}
+
+/* Estilos para el botón de búsqueda */
+.btn-outline-light {
+  border-color: #ffffff; /* Color del borde */
+  color: #ffffff; /* Color del texto */
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff; /* Color de fondo al pasar el mouse */
+  color: #343a40; /* Color del texto al pasar el mouse */
+}

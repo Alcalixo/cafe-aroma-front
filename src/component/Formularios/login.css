@@ -1,0 +1,125 @@
+.bodyLogin{
+    font-family: 'Poppins', 'sens-serif';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   height: 100vh;
+   padding: 5px;
+   margin: 5px;
+
+}
+.contentLogin{
+    background-color: #fcfcfc;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    /*width: 50vw;*/
+    min-height: 480px;
+    max-width: 100%;
+    
+}
+
+.contentLogin button{
+   background-color: #eeb770;
+   color: #fcfcfc;
+   padding: 10px 10px;
+   border: 1px solid transparent;
+   border-radius: 8px;
+   font-weight: 600;
+   letter-spacing: 0.5px;
+   text-transform: uppercase;
+   margin-top: 10px;
+}
+
+btn:hover{
+   background-color: darkmagenta;
+
+}
+
+.header-text h1, .forgot a{
+    color: #916832;
+}
+.right-box{
+  padding: 40px 30px 40px 40px;
+}
+
+.switch-content{
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 0 60px 60px 0;
+  z-index: 1000;
+}
+
+.contentLogin.active .switch-content{
+    transform:translateX(100%);
+    border-radius: 60px 0 0 60px;
+}
+
+.switch{
+    background-color: rgb(139, 0, 53);
+    height: 100%;
+    color:#ffffff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.contentLogin.active .switch{
+    transform:translateX(50%);
+}
+
+.switch-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.switch-left{
+    transform: translateX(-200%);
+}
+
+.contentLogin.active .switch-left{
+    transform: translateX(0);
+}
+
+.switch-right{
+    right: 0;
+    transform: translateX(0);
+}
+
+.contentLogin.active .switch-right{
+    transform: translateX(200%);
+}
+
+body {
+    background-image: url('../../assets/img/img04.jpg'); /* Ruta de la imagen */
+    background-size: cover; /* Para cubrir toda la página */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat; /* Evitar que la imagen se repita */
+    background-attachment: fixed; /* Mantener la imagen fija al hacer scroll */
+    margin: 0; /* Eliminar márgenes por defecto */
+    min-height: 100vh; /* Asegurarse de que el body tenga al menos la altura de la ventana */
+  }
+
+  .loginContainer {
+    padding: 0;
+    margin: 0;
+  }

@@ -1,0 +1,144 @@
+.formbody-contacto {
+    display: grid;
+    background-color: bisque;
+    align-items: center;
+    justify-content: flex-start; /* Asegura el contenido alineado a la izquierda */
+    flex-direction: column;
+    height: 90vh; /* Altura del formulario */
+    width: 45%; /* Formulario más estrecho */
+    position: relative; /* Permite posicionamiento absoluto */
+    transition: transform 0.6s ease-in-out; /* Transición suave para el desplazamiento */
+    overflow: hidden;
+    margin-left: 5px;
+  }
+  
+  .contentContacto {
+    position: relative;
+    width: 142%;
+    height: 100%;
+    display: flex;
+    flex-direction: row; /* Alinea los elementos horizontalmente */
+    
+  }
+  
+  .contentContacto button {
+    background-color: #eeb770;
+    color: #fcfcfc;
+    padding: 10px 10px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  
+  .contentContacto button:hover {
+    background-color: darkmagenta;
+  }
+  
+  .header-text h1,
+  .forgot a {
+    color: #916832;
+  }
+  
+  .right-box {
+    padding: 40px 30px 40px 0; /* Ajuste del padding para alinearlo a la izquierda */
+    margin-left: 0; /* Asegura alineación izquierda */
+    width: 100%; /* Ajuste para pantallas grandes */
+  }
+  
+  .textArea {
+    width: 100%; /* Ajustar el ancho del área de texto */
+    max-width: 450px; /* Ancho máximo del área de texto */
+  }
+  
+  /* Estilos para el contenido de la transición */
+  .switch-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%; /* Panel magenta más ancho */
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 0 60px 60px 0;
+    z-index: 1000;
+  }
+  
+  .contentContacto.active .switch-content {
+    transform: translateX(100%);
+    border-radius: 60px 0 0 60px;
+  }
+  
+  .switch {
+    background-color: rgb(139, 0, 53);
+    height: 100%;
+    color: #ffffff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .contentContacto.active .switch {
+    transform: translateX(50%);
+  }
+  
+  .switch-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .switch-left {
+    transform: translateX(-200%);
+  }
+  
+  .contentContacto.active .switch-left {
+    transform: translateX(0);
+  }
+  
+  .switch-right {
+    right: 0;
+    transform: translateX(0);
+  }
+  
+  .contentContacto.active .switch-right {
+    transform: translateX(200%);
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .formbody-contacto {
+      width: 20%; /* Formulario más estrecho en pantallas pequeñas */
+      height: auto; /* Altura automática */
+      justify-content: flex-start; /* Mantener contenido alineado a la izquierda */
+    }
+  
+    .contentContacto {
+      flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    }
+  
+    .right-box {
+      margin-left: 0; /* Asegura que el formulario esté alineado a la izquierda */
+      width: 85%; /* Ajusta el ancho en pantallas pequeñas */
+      padding: 20px;
+    }
+  
+    .switch-content {
+      width: 85%; /* Panel magenta más ancho en pantallas pequeñas */
+    }
+  }
+  

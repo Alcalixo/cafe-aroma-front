@@ -1,0 +1,55 @@
+.Footer {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  justify-content: center;
+  position: absolute;
+}
+
+.Image {
+  height: 130px;
+  width: auto;
+}
+
+.Nav {
+  justify-content: space-around; /* Distribuye los elementos a lo largo del contenedor */
+}
+
+.Navegador-Footer {
+  display: flex;
+  justify-content: space-around; /* Distribuye los elementos a lo largo del contenedor */
+  align-items: center; /* Centra los elementos verticalmente */
+  width: 100%;
+  padding: 0;
+}
+
+.Nav-link {
+  display: inline-block;
+  margin: 0 10px; /* Añade espacio entre los enlaces */
+  color: white;
+  text-decoration: none;
+}
+
+.Icon {
+  font-size: 60px; /* Ajusta el tamaño de los iconos */
+  margin: 0 20px; /* Añade espacio entre los iconos */
+  color: white; /* Asegura que los iconos sean blancos */
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.Social-Icons {
+  display: flex;
+  justify-content: space-around; /* Distribuye los elementos a lo largo del contenedor */
+  text-align: center;
+  width: 100%;
+  padding: 10px; /* Añade padding si es necesario */
+}
+
+.Copyright{
+    text-align: start;
+}
+
+.stack{
+  text-align: center;
+}

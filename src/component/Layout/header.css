@@ -1,0 +1,16 @@
+
+.Header {
+  background-color: beige;
+  color: #a52a2a;
+  text-align: center;
+  padding: 20px 0; /* Espaciado superior e inferior */
+  text-align: center; /* Centrar el texto */
+}
+
+.welcome-text {
+  font-family: 'Comic Sans MS', cursive; /* Fuente agradable */
+  font-size: 36px; /* Tamaño de fuente */
+  color: #EBD758; /* Color del texto */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+  margin: 0; /* Eliminar margen */
+}
