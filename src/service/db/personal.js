@@ -57,9 +57,9 @@ const personal = [
   },
   {
     id: 6,
-    nombre: "Meza Wakahayashi Juan Ignacio",
+    nombre: "Juan Ignacio Meza Wakahayashi",
     imagen:
-      "",
+      "../../assets/img/foto_perfil_MezaWakahayshi.PNG",
     descripcion:
       "Estudiante avanzado en la carrera Licenciatura en Sistemas de Información, proactivo con capacidad analitica y experiencia en proyectos en equipo. Desarrollador Full Stack Junior.",
     linkedin: "https://www.linkedin.com/in/juan-ignacio-meza-wakahayashi-349625272/",
