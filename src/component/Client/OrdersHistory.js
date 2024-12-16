@@ -71,7 +71,7 @@ export default function OrdersHistory() {
             </Table>
           </div>
           {selectedOrder && (
-            <div className="mt-3">
+            <div className="mt-3 table-responsive">
               <Table bordered>
                 <thead>
                   <tr>
