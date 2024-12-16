@@ -101,7 +101,6 @@ function Home() {
   const [showLogin, setShowLogin] = useState(false); // Estado para mostrar el formulario de inicio de sesión
   const [products, setProducts] = useState([]); // Estado para los productos
   const { isAuthenticated } = useAuth();
-  
 
   useEffect(() => {
     // Aquí podrías hacer una llamada a la API para obtener los productos, por ahora usamos un array de ejemplo
@@ -207,33 +206,36 @@ function Home() {
       </div>
       <section class="cta-section">
         <div class="cta-content">
+          <hr></hr>
+          <hr></hr>
           <h2>Descubre Nuestros Mejores Cafés</h2>
           <p>
             Explora una selección única de granos frescos y tostados
             artesanalmente.
           </p>
+          <div className="button-container">
+        {!isAuthenticated  && (
+          <Link to="/productos">
+            <Button variant="primary" className="view-products-button">
+              Ir A Comprar!
+            </Button>
+          </Link>
+        )}
+        {!isAuthenticated && (
+         <Link to="/users/login">
+            <Button variant="primary" className="view-products-button">
+              Iniciar Sesion
+            </Button>
+          </Link>
+        )}
+      <hr></hr>
+      </div>
         </div>
         <div class="cta-image">
           <img src={img03} alt="Imagen de café artesanal" />
         </div>
       </section>
-      <div className="button-container">
-        <Link to="/productos">
-          <Button variant="primary" className="view-products-button">
-            Ir A Comprar!
-          </Button>
-        </Link>
-
-        {!isAuthenticated && (
-          <Button
-            variant="secondary"
-            className="login-button"
-            onClick={handleLoginClick}
-          >
-            Iniciar Sesión
-          </Button>
-        )}
-      </div>
+      <hr></hr>
     </div>
   );
 }

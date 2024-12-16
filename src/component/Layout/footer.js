@@ -7,6 +7,7 @@ import {
 } from "react-icons/ti";
 import "./footer.css";
 import logo from "../../assets/img/logo-cafe-aroma.png";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -22,11 +23,15 @@ function Footer() {
           <Col>
             <Row className="Navegador-Footer">
               <Nav className="flex-colum fs-5">
-                <NavLink className="nav-link text-white">Inicio</NavLink>
-                <NavLink className="nav-link text-white">
+                <NavLink as={Link} to="/" className="nav-link text-white" exact>
+                  Inicio
+                </NavLink>
+                <NavLink as={Link} to="/about" className="nav-link text-white">
                   Acerca De Nosotros
                 </NavLink>
-                <NavLink className="nav-link text-white">Contacto</NavLink>
+                <NavLink as={Link} to="/contacto" className="nav-link text-white">
+                  Contactanos
+                </NavLink>
               </Nav>
             </Row>
             <Row className="Social-Icons">
