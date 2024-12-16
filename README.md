@@ -39,7 +39,7 @@ La aplicación está disponible en el siguiente enlace: [Página Web Cafe Aroma]
     [![LinkedIn](https://img.shields.io/badge/LinkedIn-Leo_Canteros-blue?style=for-the-badge&logo=linkedin)](faltacompletar) 
     [![GitHub](https://img.shields.io/badge/GitHub-Leo_Canteros-black?style=for-the-badge&logo=github)](https://github.com/leonardo-canteros)
   
-  - **Juan Ignasio Meza**: (Frontend | Brand Design | Product Owner) 
+  - **Juan Ignacio Meza**: (Frontend | Brand Design | Product Owner) 
     [![LinkedIn](https://img.shields.io/badge/LinkedIn-Juan_Ignasio_Meza-blue?style=for-the-badge&logo=linkedin)](faltacompletar) 
     [![GitHub](https://img.shields.io/badge/GitHub-Juan_Ignasio_Meza-black?style=for-the-badge&logo=github)](faltacompletar)
 ## Duración del proyecto: 

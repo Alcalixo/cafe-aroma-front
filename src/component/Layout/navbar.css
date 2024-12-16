@@ -85,3 +85,23 @@
   background-color: #ffffff; /* Color de fondo al pasar el mouse */
   color: #343a40; /* Color del texto al pasar el mouse */
 }
+
+.cart-count {
+  position: absolute; /* Posicionamiento absoluto */
+  top: -5px; /* Ajustar la posición vertical */
+  right: -10px; /* Ajustar la posición horizontal */
+  background-color: #ff4757; /* Color de fondo del contador */
+  color: #ffffff; /* Color del texto del contador */
+  border-radius: 50%; /* Bordes redondeados */
+  padding: 2px 6px; /* Espaciado interno */
+  font-size: 12px; /* Tamaño de fuente del contador */
+}
+
+.cart-link:hover .cart-icon {
+  color: #000000; /* Cambia el color del icono a negro al pasar el mouse */
+}
+
+.cart-link:hover .cart-count {
+  background-color: #ff4757; /* Mantiene el color de fondo del contador */
+  color: #ffffff; /* Mantiene el color del texto del contador */
+}
