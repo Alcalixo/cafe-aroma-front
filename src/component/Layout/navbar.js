@@ -98,6 +98,9 @@ function NavbarCafe() {
                   Catálogo
                 </Nav.Link>
                 <NavDropdown title="Ajustes" id="navbarDropdown">
+                  <NavDropdown.Item as={Link} to="/ordersHistory">
+                    Compras históricas
+                  </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
                     to="#"
