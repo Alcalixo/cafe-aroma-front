@@ -19,6 +19,16 @@ const personal = [
     linkedin: "https://www.linkedin.com/in/alcalixo-gonzalo-rodriguez",
     github: "https://github.com/Alcalixo",
   },
+  {
+    id: 3,
+    nombre: "Nicolás A. Sena",
+    imagen:
+      "https://media.licdn.com/dms/image/v2/D4D03AQEc7Scl4qpHcA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1732229843035?e=1740009600&v=beta&t=6Pp5YfEBp3ILv7OMjhsPrUmIDTq5gfiKeHU4xVl_KQ0",
+    descripcion:
+      "Estudiante avanzado en la carrera Licenciatura en Sistemas de Información (UNNE); Analista en Sistemas y Desarrollador de Software; con experiencia en metodologías ágiles.",
+    linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-ariel-sena-68119433a/",
+    github: "https://github.com/niic0o/",
+  },
 ];
 
 export default personal;
