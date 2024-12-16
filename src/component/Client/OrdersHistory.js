@@ -38,6 +38,7 @@ function OrdersHistory() {
                   <th>#</th>
                   <th>NRO ORDEN</th>
                   <th>STATUS</th>
+                  <th>TOTAL</th>
                 </tr>
               </thead>
               <tbody className="table-group-divider">
@@ -46,6 +47,9 @@ function OrdersHistory() {
                     <td>{i + 1}</td>
                     <td>{order.nro_orden}</td>
                     <td>{order.status}</td>
+                    <td>
+                      ${order.items.reduce((acc, item) => acc + item.precio, 0)}
+                    </td>
                     {/* <td>
                       ${new Intl.NumberFormat("es-mx").format(producto.precio)}
                     </td>
