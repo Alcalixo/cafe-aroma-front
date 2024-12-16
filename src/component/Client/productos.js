@@ -3,6 +3,8 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import FormSelect from "react-bootstrap/FormSelect";
 import { TiShoppingCart } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../service/AuthContext";
 import { fetchProductos } from "../../service/Redux/actions/productActions";
 import { addCart } from "../../service/Redux/reducers/cartSlice";
 import { SearchContext } from "../../service/SearchContext";
@@ -25,6 +27,7 @@ function Productos() {
 
   const ultimoIndice = productosPorPagina * paginaActual;
   const primerIndice = ultimoIndice - productosPorPagina;
+  const { isAuthenticated, user } = useAuth();
 
   useEffect(() => {
     dispatch(fetchProductos());
@@ -49,6 +52,14 @@ function Productos() {
   return (
     <Container className="mt-3 pt-3">
       {/* <h2>Nuestros Productos</h2> */}
+      <h2 className="productosTitulo">Nuestro Menú</h2>
+      {!isAuthenticated && (
+        <Link to="/users/login">
+          <Button variant="danger" className="loginProductos">
+            Inicia Sesion para Comprar!
+          </Button>
+        </Link>
+      )}{" "}
       <Row>
         {filteredProducts.slice(primerIndice, ultimoIndice).map((producto) => (
           <Col key={producto._id} xs={12} sm={6} md={4} lg={3} className="mb-4">
@@ -64,6 +75,14 @@ function Productos() {
                 <Card.Text>{producto.description}</Card.Text>
                 <Card.Text>Precio: ${producto.precio}</Card.Text>
                 <Card.Text>Disponibilidad:{producto.stock} </Card.Text>
+                {isAuthenticated && user?.categoria === "cliente" && (
+                  <Button
+                    variant="warning"
+                    onClick={() => handleAddCart(producto)}
+                  >
+                    <TiShoppingCart /> Agregar al Carrito
+                  </Button>
+                )}
               </Card.Body>
               <Button
                 variant="warning"

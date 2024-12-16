@@ -75,7 +75,7 @@ const UserTable = () => {
   return (
     <Container>
       <Row>
-        <h2>Lista de Usuarios</h2>
+        <h2 className="userTitle">Lista de Usuarios</h2>
         <Col>
           <Table striped className="tableUser" border="warning">
             <thead>
