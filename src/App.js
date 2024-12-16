@@ -2,28 +2,30 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import About from "./component/About/about";
+import Crud from "./component/Admin/ProductManagment";
 import UserTable from "./component/Admin/users";
 import Cart from "./component/Client/cart";
 import MercadoPagoCallback from "./component/Client/MercadoPagoCallback";
+import OrdersHistory from "./component/Client/OrdersHistory";
 import Productos from "./component/Client/productos";
 import Contacto from "./component/Contact/contacto";
 import Login from "./component/Formularios/login";
 import Home from "./component/home/home";
 import Erro404 from "./component/Layout/error404";
 import Footer from "./component/Layout/footer";
-import Header from "./component/Layout/header";
 import NavbarCafe from "./component/Layout/navbar";
 import { AuthProvider, useAuth } from "./service/AuthContext";
-import Crud from "./component/Admin/ProductManagment";
-import OrdersHistory from "./component/Client/OrdersHistory";
+import { SearchProvider } from "./service/SearchContext";
 
 function App() {
   return (
-    <AuthProvider>
-      <NavbarCafe />
-      <MainRoutes />
-      <Footer />
-    </AuthProvider>
+    <SearchProvider>
+      <AuthProvider>
+        <NavbarCafe />
+        <MainRoutes />
+        <Footer />
+      </AuthProvider>
+    </SearchProvider>
   );
 }
 

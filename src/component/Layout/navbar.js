@@ -10,8 +10,7 @@
 
 // Administrador: bastante bien, se podria poner mejor nombre a PANEL y se debe sacar “registrar usuario”
 // // NavbarCafe.js
-import React from "react";
-import Button from "react-bootstrap/Button";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -22,6 +21,7 @@ import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo-cafe-aroma.png"; // Importa el logo
 import { useAuth } from "../../service/AuthContext"; // Importa el contexto de autenticación
+import { SearchContext } from "../../service/SearchContext";
 import "../../Styles/miestilo.css"; // Asegúrate de que la ruta sea correcta
 import DarmeDeBaja from "../Client/DarmeDeBaja";
 import "./navbar.css";
@@ -34,6 +34,12 @@ function NavbarCafe() {
   );
 
   const { isAuthenticated, user, logout } = useAuth(); // Usa el contexto de autenticación
+
+  const { searchTerm, setSearchTerm } = useContext(SearchContext);
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
     <Navbar expand="lg" className="navbar-custom">
@@ -172,10 +178,12 @@ function NavbarCafe() {
               placeholder="Buscar"
               aria-label="Buscar"
               className="me-2"
+              value={searchTerm}
+              onChange={handleSearch}
             />
-            <Button variant="outline-light" type="submit">
+            {/* <Button variant="outline-light" type="submit">
               Buscar
-            </Button>
+            </Button> */}
           </Form>
         </Navbar.Collapse>
       </Container>
