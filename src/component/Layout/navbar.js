@@ -34,8 +34,6 @@ function NavbarCafe() {
   );
 
   const { isAuthenticated, user, logout } = useAuth(); // Usa el contexto de autenticación
-  console.log("Estado de autenticación:", isAuthenticated); // Verifica el estado de autenticación
-  console.log("Datos del usuario:", user); // Verifica los datos del usuario
 
   return (
     <Navbar expand="lg" className="navbar-custom">
@@ -81,7 +79,7 @@ function NavbarCafe() {
                   <NavDropdown.Divider />
                   <NavDropdown.Item
                     as={Link}
-                    to="#"
+                    to="/"
                     onClick={() => buscarUsuario()}
                   >
                     Editar Mis Datos
@@ -118,7 +116,7 @@ function NavbarCafe() {
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
-                    to="#"
+                    to="/"
                     onClick={() => buscarUsuario()}
                   >
                     Editar Mis Datos
@@ -128,7 +126,7 @@ function NavbarCafe() {
                   </NavDropdown.Item> */}
                   <DarmeDeBaja />
                   <NavDropdown.Divider />
-                  <NavDropdown.Item as={Link} to="#" onClick={logout}>
+                  <NavDropdown.Item as={Link} to="/users/login" onClick={logout}>
                     Cerrar Sesión
                   </NavDropdown.Item>
                 </NavDropdown>

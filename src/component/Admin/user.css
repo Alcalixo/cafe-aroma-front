@@ -10,4 +10,8 @@
   .tableUser tbody tr:nth-child(odd) td.categoryColumn {
     background-color: #e6f2ff;
   }
+
+  .userTitle{
+    color: white;
+  }
   

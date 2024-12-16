@@ -5,11 +5,14 @@ import { TiShoppingCart } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductos } from "../../service/Redux/actions/productActions";
 import { addCart } from "../../service/Redux/reducers/cartSlice";
+import { useAuth } from "../../service/AuthContext";
+import { Link } from "react-router-dom";
 
 function Productos() {
   const dispatch = useDispatch();
   const productos = useSelector((state) => state.productos); // Selecciona productos del estado global
   const cart = useSelector((state) => state.cart); // Selecciona el carrito del estado global (opcional para verificar)
+  const { isAuthenticated, user } = useAuth();
 
   useEffect(() => {
     dispatch(fetchProductos());
@@ -32,7 +35,15 @@ function Productos() {
   };
   return (
     <Container>
-      <h2>Nuestros Productos</h2>
+      <h2 className="productosTitulo">Nuestro Menú</h2>
+      {!isAuthenticated && (
+        <Link to="/users/login">
+          <Button variant="danger" className="loginProductos">
+            Inicia Sesion para Comprar!
+          </Button>
+        </Link>
+      )}
+      {" "}
       <Row>
         {productos.map((producto) => (
           <Col key={producto._id} md={4} className="mb-4">
@@ -48,12 +59,14 @@ function Productos() {
                 <Card.Text>{producto.description}</Card.Text>
                 <Card.Text>Precio: ${producto.precio}</Card.Text>
                 <Card.Text>Disponibilidad:{producto.stock} </Card.Text>
-                <Button
-                  variant="warning"
-                  onClick={() => handleAddCart(producto)}
-                >
-                  <TiShoppingCart /> Agregar al Carrito
-                </Button>
+                {isAuthenticated && user?.categoria === "cliente" && (
+                  <Button
+                    variant="warning"
+                    onClick={() => handleAddCart(producto)}
+                  >
+                    <TiShoppingCart /> Agregar al Carrito
+                  </Button>
+                )}
               </Card.Body>
             </Card>
           </Col>
