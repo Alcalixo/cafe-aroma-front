@@ -1,6 +1,14 @@
 //  ASI FUNCIONABA EL NAVBAR ----INICIO
 // //Navbar 4, con lógica de estado global de usuario
+// Visitante: Inicio - Quienes Somos - Contactenos - Catálogo - Cuenta(debe llamarse INICIAR SESION)
 
+// Cliente: Inicio - Quienes Somos - Contactenos - Catalogo - Ajustes - Carrito
+
+// Catalogo: → productos. → agregar al carrito
+
+// Ajustes: Mis compras, Editar mis datos. Darme de baja. Cerrar Sesion.
+
+// Administrador: bastante bien, se podria poner mejor nombre a PANEL y se debe sacar “registrar usuario”
 // // NavbarCafe.js
 import React from "react";
 import Button from "react-bootstrap/Button";
@@ -47,7 +55,12 @@ function NavbarCafe() {
             {isAuthenticated && user?.categoria === "admin" && (
               <>
                 <Nav.Link as={NavLink} to="/crud" className="nav-link">
-                  PANEL
+                  PRODUCTOS
+                  <img
+                    src={logo}
+                    alt="Logo Cafecito Chiquito"
+                    style={{ width: "25px", marginRight: "5px" }}
+                  />
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/" className="nav-link">
                   Inicio
@@ -64,9 +77,6 @@ function NavbarCafe() {
                   </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/listado_de_eliminados">
                     Reestablecer Usuarios
-                  </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/registro">
-                    Registrar Usuarios
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item
@@ -95,7 +105,12 @@ function NavbarCafe() {
                   Contactanos
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/productos" className="nav-link">
-                  Catálogo
+                  Comprar
+                  <img
+                    src={logo}
+                    alt="Logo Cafecito Chiquito"
+                    style={{ width: "25px", marginRight: "5px" }}
+                  />
                 </Nav.Link>
                 <NavDropdown title="Ajustes" id="navbarDropdown">
                   <NavDropdown.Item as={Link} to="/ordersHistory">
@@ -118,7 +133,7 @@ function NavbarCafe() {
                   </NavDropdown.Item>
                 </NavDropdown>
                 <div className="cart-link-container">
-                  <Link to="/cart" className="cart-link">
+                  <Link to="/cart" className="nav-link cart-link">
                     <IoCartOutline className="cart-icon" />
                     {cartCount > 0 && (
                       <span className="cart-count">{cartCount}</span>
@@ -143,7 +158,12 @@ function NavbarCafe() {
                   Catálogo
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/users/login" className="nav-link">
-                  Cuenta
+                  Iniciar Sesión
+                  <img
+                    src={logo}
+                    alt="Logo Cafecito Chiquito"
+                    style={{ width: "25px", marginRight: "5px" }}
+                  />
                 </Nav.Link>
               </>
             )}
