@@ -18,6 +18,8 @@ function Productos() {
   const cart = useSelector((state) => state.cart); // Selecciona el carrito del estado global (opcional para verificar)
   const [paginaActual, setPaginaActual] = useState(1);
   const [productosPorPagina, setProductosPorPagina] = useState(4);
+  const [showAlert, setShowAlert] = useState(false);
+  const [mensaje, setMensaje] = useState("");
 
   const filteredProducts = productos.filter((product) => {
     return product.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -47,6 +49,13 @@ function Productos() {
         description: producto.description,
       })
     );
+
+    setShowAlert(true);
+    setMensaje(`Producto ${producto.name} agregado al carrito`);
+
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 2000); // 2000ms = 2 segundos
   };
 
   return (
@@ -88,6 +97,11 @@ function Productos() {
             </Card>
           </Col>
         ))}
+        {showAlert && (
+          <div className="alert alert-success" role="alert">
+            {mensaje}
+          </div>
+        )}
       </Row>
       <Row className="justify-content-center text-align-center">
         <Col xs="auto">
