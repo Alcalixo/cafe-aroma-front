@@ -55,6 +55,16 @@ const personal = [
     linkedin: "https://www.linkedin.com/in/rodriguez-gonzalo",
     github: "https://github.com/Alcalixo",
   },
+  {
+    id: 6,
+    nombre: "Meza Wakahayashi Juan Ignacio",
+    imagen:
+      "",
+    descripcion:
+      "Estudiante avanzado en la carrera Licenciatura en Sistemas de Información, proactivo con capacidad analitica y experiencia en proyectos en equipo. Desarrollador Full Stack Junior.",
+    linkedin: "https://www.linkedin.com/in/juan-ignacio-meza-wakahayashi-349625272/",
+    github: "https://github.com/JuanIgnacioMW/JuanignacioMw",
+  },
 ];
 
 export default personal;
