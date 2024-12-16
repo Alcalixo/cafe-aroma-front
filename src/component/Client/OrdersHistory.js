@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import { useAuth } from "../../service/AuthContext";
 
-function OrdersHistory() {
+export default function OrdersHistory() {
   const [ordenes, setOrdenes] = useState([]);
+  const [selectedOrder, setSelectedOrder] = useState(null);
   const { user } = useAuth();
 
   useEffect(() => {
@@ -27,6 +28,12 @@ function OrdersHistory() {
     fetchOrdenes();
   }, [user]);
 
+  const ordenesOrdenadas = ordenes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+  const handleRowClick = (order) => {
+    setSelectedOrder(order);
+  };
+
   return (
     <div className="container-fluid">
       <div className="row mt-3">
@@ -36,39 +43,65 @@ function OrdersHistory() {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>NRO ORDEN</th>
-                  <th>STATUS</th>
-                  <th>TOTAL</th>
+                  <th className="text-center">NRO ORDEN</th>
+                  <th className="text-center">FECHA</th>
+                  <th className="text-center">STATUS</th>
+                  <th className="text-center">TOTAL</th>
+                  <th className="text-center">ACCIÓN</th>
                 </tr>
               </thead>
               <tbody className="table-group-divider">
-                {ordenes.map((order, i) => (
-                  <tr key={order._id}>
+                {ordenesOrdenadas.map((order, i) => (
+                  <tr key={order._id} onClick={() => handleRowClick(order)}>
                     <td>{i + 1}</td>
                     <td>{order.nro_orden}</td>
+                    <td>{new Date(order.createdAt).toLocaleString()}</td>
                     <td>{order.status}</td>
                     <td>
-                      ${order.items.reduce((acc, item) => acc + item.precio, 0)}
+                      ${(order.items.reduce((acc, item) => acc + item.precio, 0) * 1.21).toFixed(2)}
                     </td>
-                    {/* <td>
-                      ${new Intl.NumberFormat("es-mx").format(producto.precio)}
+                    <td className="text-center">
+                      <Button variant="primary" onClick={() => handleRowClick(order)}>
+                        Ver Detalle
+                      </Button>
                     </td>
-                    <td>
-                      <img
-                        src={producto.img}
-                        alt={producto.name}
-                        style={{ width: "50px" }}
-                      />
-                    </td> */}
                   </tr>
                 ))}
               </tbody>
             </Table>
           </div>
+          {selectedOrder && (
+            <div className="mt-3">
+              <Table bordered>
+                <thead>
+                  <tr>
+                    <th className="text-center">IMAGEN</th>
+                    <th className="text-center">NOMBRE</th>
+                    <th className="text-center">CANTIDAD</th>
+                    <th className="text-center">PRECIO + IVA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {selectedOrder.items.map((item, j) => (
+                    <tr key={j}>
+                      <td style={{ textAlign: "center" }}>
+                        <img
+                          src={item.product_id.img}
+                          alt={item.product_id.name}
+                          style={{ width: "50px" }}
+                        />
+                      </td>
+                      <td>{item.product_id.name}</td>
+                      <td>{item.cantidad}</td>
+                      <td>${(item.precio * 1.21).toFixed(2)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
-
-export default OrdersHistory;
