@@ -9,6 +9,7 @@ export const postOrder = async (cart, user) => {
         product_id: item._id,
         cantidad: Number(item.quantity),
         precio: Number(item.precio),
+        iva: (Number(item.precio)*0.21).toFixed(2),
       })),
     };
 

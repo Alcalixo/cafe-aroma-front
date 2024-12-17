@@ -67,9 +67,9 @@ export default function OrdersHistory() {
                         $
                         {(
                           order.items.reduce(
-                            (acc, item) => acc + item.precio,
+                            (acc, item) => acc + item.precio + item.iva,
                             0
-                          ) * 1.21
+                          )
                         ).toFixed(2)}
                       </td>
                       <td className="text-center">
@@ -117,7 +117,7 @@ export default function OrdersHistory() {
                         </td>
                         <td>{item.product_id.name}</td>
                         <td>{item.cantidad}</td>
-                        <td>${(item.precio * 1.21).toFixed(2)}</td>
+                        <td>${(item.precio + item.iva).toFixed(2)}</td>
                       </tr>
                     ))}
                   </tbody>
