@@ -165,6 +165,7 @@
     align-items: center;
     position: relative;
 }
+
     
 .moving-text {
     width: max-content;
@@ -177,20 +178,14 @@
     padding: 0 2rem; /* Espacio entre las frases */ 
     font-weight: bold; /* Para darle énfasis al texto */ 
     font-size: 2rem;
-    color: #A47C65; /* Color del texto */
-    } /* Animación de movimiento */ 
-    
-    @keyframes scroll-left {
-        0% {
-          transform: translateX(100);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
+    color: #A47C65; /* Color del texto */      
+}
+
+@keyframes scroll-left {
+    0% {
+      transform: translateX(100);
     }
-
-
-
-
-
-
+    100% {
+      transform: translateX(-50%);
+    }
+}

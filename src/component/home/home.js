@@ -199,7 +199,7 @@ function Home() {
   </section>
 
   <div className="button-container">
-        <Button variant="primary" className="view-products-button">
+        <Button variant="primary" className="view-products-button" onClick={handleLoginClick} >
           Ver Productos
         </Button>
         <Button
