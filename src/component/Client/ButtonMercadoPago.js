@@ -9,8 +9,9 @@ import { postOrder } from "../../service/Redux/actions/cartActions";
 function ButtonMercadoPago({ cart }) {
   const publicApi = process.env.REACT_APP_MP_PUBLIC_KEY;
   initMercadoPago(publicApi);
-  
+
   const [preferenceId, setPreferenceId] = useState(null);
+  const [isLoading, setLoading] = useState(false);
   const { user } = useAuth();
 
   const globalCart = useSelector((state) => state.cart);
@@ -41,6 +42,7 @@ function ButtonMercadoPago({ cart }) {
     }
   };
   const handleMP = async () => {
+    setLoading(true);
     const id = await createPreference();
     id && setPreferenceId(id);
   };
@@ -69,12 +71,17 @@ function ButtonMercadoPago({ cart }) {
   const onReady = async () => {
     // Callback called when Brick is ready.
     // Here, you can hide loadings on your website, for example.
+    setLoading(false);
   };
 
   return (
     <div>
-      <Button onClick={handleMP} variant="primary">
-        Proceder al Pago
+      <Button
+        onClick={!isLoading ? handleMP : null}
+        variant="primary"
+        disabled={isLoading}
+      >
+        {isLoading ? "Preparando Pago" : "Proceder al Pago"}
       </Button>
       {preferenceId && (
         <Wallet
