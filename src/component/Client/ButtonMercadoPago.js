@@ -9,19 +9,25 @@ import { postOrder } from "../../service/Redux/actions/cartActions";
 function ButtonMercadoPago({ cart }) {
   const publicApi = process.env.REACT_APP_MP_PUBLIC_KEY;
   initMercadoPago(publicApi);
-
+  
   const [preferenceId, setPreferenceId] = useState(null);
+  const { user } = useAuth();
 
   const globalCart = useSelector((state) => state.cart);
-  const { user } = useAuth();
+
+  const cartWithIVA = globalCart.map((item) => {
+    return {
+      ...item,
+      precio: (Number(item.precio) * 1.21).toFixed(2),
+    };
+  });
 
   const createPreference = async () => {
     try {
-      console.log(user);
       const newOrder = await postOrder(globalCart, user);
       const response = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/mercadoPago/createPreference/${newOrder._id}`,
-        cart,
+        cartWithIVA,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

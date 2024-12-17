@@ -17,7 +17,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoCartOutline } from "react-icons/io5";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo-cafe-aroma.png"; // Importa el logo
 import { useAuth } from "../../service/AuthContext"; // Importa el contexto de autenticación
@@ -25,6 +25,7 @@ import { SearchContext } from "../../service/SearchContext";
 import "../../Styles/miestilo.css"; // Asegúrate de que la ruta sea correcta
 import DarmeDeBaja from "../Client/DarmeDeBaja";
 import "./navbar.css";
+import DropdownCart from "../Client/DropdownCart";
 
 function NavbarCafe() {
   const cart = useSelector((state) => state.cart);
@@ -137,12 +138,13 @@ function NavbarCafe() {
                   </NavDropdown.Item>
                 </NavDropdown>
                 <div className="cart-link-container">
-                  <Link to="/cart" className="nav-link cart-link">
+                  {/* <Link to="/cart" className="nav-link cart-link">
                     <IoCartOutline className="cart-icon" />
                     {cartCount > 0 && (
                       <span className="cart-count">{cartCount}</span>
                     )}
-                  </Link>
+                  </Link> */}
+                  <DropdownCart />
                 </div>
               </>
             )}
