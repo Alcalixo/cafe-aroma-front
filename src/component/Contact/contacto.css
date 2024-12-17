@@ -14,11 +14,11 @@
 }
 
 .container-contacto{
-    height: 98vh;
+    /*height: 98vh;*/
     display: grid;
-    justify-content:left;
+    justify-content:center;
     align-items:center;
-    width: 30%;    
+   /* width: 30%;*/
 }
 .formulario-contacto{
   color: brown;
@@ -32,7 +32,7 @@
 }
 .contenedorContacto{
   display: flex;
-  gap: 45px;
+  /*gap: 45px;*/
 }
 
 body {

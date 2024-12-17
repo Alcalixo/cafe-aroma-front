@@ -1,0 +1,13 @@
+.cart-table {
+    border-collapse: collapse;
+  }
+  
+  .cart-table td,
+  .cart-table th {
+    border: none;
+    padding: 8px;
+  }
+  
+  .cart-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }

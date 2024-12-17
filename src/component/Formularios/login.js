@@ -3,6 +3,8 @@ import axios from "axios";
 import "./login.css";
 import { useAuth } from "../../service/AuthContext"; // Importa el contexto de autenticación
 import { jwtDecode } from "jwt-decode";
+import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" }); // Estado para el formulario de inicio
@@ -21,6 +23,7 @@ function Login() {
 
   const [errors, setErrors] = useState([]);
   const [showErrors, setShowErrors] = useState(false);
+  const navigate = useNavigate();
 
   const { login } = useAuth(); // Obtiene la función de login del contexto
 
@@ -61,6 +64,7 @@ function Login() {
       const userData = jwtDecode(response.data.token); // Decodificar el token para obtener los datos del usuario
       login(userData); // Pasar los datos del usuario al contexto de autenticación
       alert("Inicio de sesión exitoso.");
+      navigate('/')
     } catch (error) {
       if (error.response && error.response.status === 400) {
         const apiErrors = Array.isArray(error.response.data.error)
@@ -101,6 +105,7 @@ function Login() {
   };
 
   return (
+    <Container className="loginContainer">
     <div className="bodyLogin">
       <div
         className="contentLogin justify-content-center align-items-center d-flex shadow-lg"
@@ -262,6 +267,7 @@ function Login() {
         </div>
       </div>
     </div>
+    </Container>
   );
 }
 

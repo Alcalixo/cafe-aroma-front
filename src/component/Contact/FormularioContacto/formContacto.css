@@ -1,11 +1,11 @@
 .formbody-contacto {
-    display: flex;
+   display: grid;
     background-color: bisque;
     align-items: center;
     justify-content: center; /* Centrar el contenido del formulario */
     flex-direction: column;
     height: 90vh; /* Altura del formulario */
-    width: 70%; /* Ancho del formulario */
+    width: 50%; /* Ancho del formulario */
     position: relative; /* Para permitir el posicionamiento absoluto de elementos internos si es necesario */
     transition: transform 0.6s ease-in-out; /* Transición suave para el desplazamiento */
 }

@@ -9,6 +9,7 @@ export const postOrder = async (cart, user) => {
         product_id: item._id,
         cantidad: Number(item.quantity),
         precio: Number(item.precio),
+        iva: (Number(item.precio)*0.21).toFixed(2),
       })),
     };
 
@@ -17,7 +18,12 @@ export const postOrder = async (cart, user) => {
     const orderSaved = (
       await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/ordenes/crearPedido`,
-        newOrder
+        newOrder,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
       )
     ).data;
     return orderSaved;

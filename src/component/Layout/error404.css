@@ -1,0 +1,26 @@
+.error404 {
+    color: white;
+    text-align: center;  /* Centra el contenido horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height:65vh;  /* Asegura que el contenido esté centrado verticalmente */
+   background-color: rgba(59, 65, 77, 0.8); /*  Fondo oscuro para un buen contraste */
+  }
+  
+  .view-products-button {
+    margin-top: 30px;
+    font: size 2em;
+    padding: 15px 30px;
+  }
+  
+  h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.7em;
+    margin-bottom: 10px;
+  }
+  

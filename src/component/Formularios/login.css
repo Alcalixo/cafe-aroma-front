@@ -4,7 +4,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+   height: 100vh;
+   padding: 5px;
+   margin: 5px;
 
 }
 .contentLogin{
@@ -12,8 +14,8 @@
     border-radius: 40px;
     position: relative;
     overflow: hidden;
-    width: 50vw;
-    min-height: 480px;   
+    /*width: 50vw;*/
+    min-height: 480px;
     max-width: 100%;
     
 }
@@ -115,4 +117,9 @@ body {
     background-attachment: fixed; /* Mantener la imagen fija al hacer scroll */
     margin: 0; /* Eliminar márgenes por defecto */
     min-height: 100vh; /* Asegurarse de que el body tenga al menos la altura de la ventana */
+  }
+
+  .loginContainer {
+    padding: 0;
+    margin: 0;
   }

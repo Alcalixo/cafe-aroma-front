@@ -1,21 +1,31 @@
 //  ASI FUNCIONABA EL NAVBAR ----INICIO
 // //Navbar 4, con lógica de estado global de usuario
+// Visitante: Inicio - Quienes Somos - Contactenos - Catálogo - Cuenta(debe llamarse INICIAR SESION)
 
+// Cliente: Inicio - Quienes Somos - Contactenos - Catalogo - Ajustes - Carrito
+
+// Catalogo: → productos. → agregar al carrito
+
+// Ajustes: Mis compras, Editar mis datos. Darme de baja. Cerrar Sesion.
+
+// Administrador: bastante bien, se podria poner mejor nombre a PANEL y se debe sacar “registrar usuario”
 // // NavbarCafe.js
-import React from "react";
-import "../../Styles/miestilo.css"; // Asegúrate de que la ruta sea correcta
-import "./navbar.css";
-import Button from "react-bootstrap/Button";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoCartOutline } from "react-icons/io5";
+import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
 import logo from "../../assets/img/logo-cafe-aroma.png"; // Importa el logo
 import { useAuth } from "../../service/AuthContext"; // Importa el contexto de autenticación
+import { SearchContext } from "../../service/SearchContext";
+import "../../Styles/miestilo.css"; // Asegúrate de que la ruta sea correcta
+import DarmeDeBaja from "../Client/DarmeDeBaja";
+import "./navbar.css";
+import DropdownCart from "../Client/DropdownCart";
 
 function NavbarCafe() {
   const cart = useSelector((state) => state.cart);
@@ -25,8 +35,12 @@ function NavbarCafe() {
   );
 
   const { isAuthenticated, user, logout } = useAuth(); // Usa el contexto de autenticación
-  console.log("Estado de autenticación:", isAuthenticated); // Verifica el estado de autenticación
-  console.log("Datos del usuario:", user); // Verifica los datos del usuario
+
+  const { searchTerm, setSearchTerm } = useContext(SearchContext);
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
     <Navbar expand="lg" className="navbar-custom">
@@ -46,7 +60,12 @@ function NavbarCafe() {
             {isAuthenticated && user?.categoria === "admin" && (
               <>
                 <Nav.Link as={NavLink} to="/crud" className="nav-link">
-                  PANEL
+                  PRODUCTOS
+                  <img
+                    src={logo}
+                    alt="Logo Cafecito Chiquito"
+                    style={{ width: "25px", marginRight: "5px" }}
+                  />
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/" className="nav-link">
                   Inicio
@@ -64,13 +83,10 @@ function NavbarCafe() {
                   <NavDropdown.Item as={Link} to="/listado_de_eliminados">
                     Reestablecer Usuarios
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/registro">
-                    Registrar Usuarios
-                  </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item
                     as={Link}
-                    to="#"
+                    to="/"
                     onClick={() => buscarUsuario()}
                   >
                     Editar Mis Datos
@@ -94,31 +110,41 @@ function NavbarCafe() {
                   Contactanos
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/productos" className="nav-link">
-                  Catálogo
+                  Comprar
+                  <img
+                    src={logo}
+                    alt="Logo Cafecito Chiquito"
+                    style={{ width: "25px", marginRight: "5px" }}
+                  />
                 </Nav.Link>
                 <NavDropdown title="Ajustes" id="navbarDropdown">
+                  <NavDropdown.Item as={Link} to="/ordersHistory">
+                    Compras históricas
+                  </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
-                    to="#"
+                    to="/"
                     onClick={() => buscarUsuario()}
                   >
                     Editar Mis Datos
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/darme_de_baja">
+                  {/* <NavDropdown.Item as={Link} onClick={DarmeDeBaja}>
                     Darme de Baja
-                  </NavDropdown.Item>
+                  </NavDropdown.Item> */}
+                  <DarmeDeBaja />
                   <NavDropdown.Divider />
-                  <NavDropdown.Item as={Link} to="#" onClick={logout}>
+                  <NavDropdown.Item as={Link} to="/users/login" onClick={logout}>
                     Cerrar Sesión
                   </NavDropdown.Item>
                 </NavDropdown>
                 <div className="cart-link-container">
-                  <Link to="/cart" className="cart-link">
+                  {/* <Link to="/cart" className="nav-link cart-link">
                     <IoCartOutline className="cart-icon" />
                     {cartCount > 0 && (
                       <span className="cart-count">{cartCount}</span>
                     )}
-                  </Link>
+                  </Link> */}
+                  <DropdownCart />
                 </div>
               </>
             )}
@@ -138,7 +164,12 @@ function NavbarCafe() {
                   Catálogo
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/users/login" className="nav-link">
-                  Cuenta
+                  Iniciar Sesión
+                  <img
+                    src={logo}
+                    alt="Logo Cafecito Chiquito"
+                    style={{ width: "25px", marginRight: "5px" }}
+                  />
                 </Nav.Link>
               </>
             )}
@@ -149,10 +180,12 @@ function NavbarCafe() {
               placeholder="Buscar"
               aria-label="Buscar"
               className="me-2"
+              value={searchTerm}
+              onChange={handleSearch}
             />
-            <Button variant="outline-light" type="submit">
+            {/* <Button variant="outline-light" type="submit">
               Buscar
-            </Button>
+            </Button> */}
           </Form>
         </Navbar.Collapse>
       </Container>

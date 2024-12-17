@@ -1,0 +1,17 @@
+.tableUser td.categoryColumn {
+    background-color: #f0f8ff; /* Color de fondo suave */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centrar el texto */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde de celda */
+  }
+  
+  /* Alternar color de fila para mejorar la legibilidad */
+  .tableUser tbody tr:nth-child(odd) td.categoryColumn {
+    background-color: #e6f2ff;
+  }
+
+  .userTitle{
+    color: white;
+  }
+  

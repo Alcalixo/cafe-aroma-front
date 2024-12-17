@@ -19,18 +19,18 @@ function Contacto() {
     <>
       <div className="contenedorContacto d-flex flex-wrap justify-content-center">
         <div
-          className={`container-contacto ${
-            showForm ? "active" : ""
-          } col-md-6 col-lg-4`}
-        >
-          <CardList />
-        </div>
-        <div
           className={`formbody-contacto ${
             showForm ? "active" : ""
-          } col-md-6 col-lg-4`}
+          } col-md-8 col-lg-5`}
         >
           <FormContacto />
+        </div>
+        <div
+          className={`container-contacto ${
+            showForm ? "active" : ""
+          } col-md-8 col-lg-5`}
+        >
+          <CardList />
         </div>
       </div>
     </>

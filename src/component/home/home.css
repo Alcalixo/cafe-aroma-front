@@ -1,191 +1,217 @@
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .carousel-container {
-    width: 100%;
-    max-width: 800px; /* Ajusta el ancho máximo del carrusel */
-    margin: 20px 0; /* Espaciado vertical */
-    display: flex; /* Usamos flexbox para alinear los botones en línea */ 
-    justify-content: space-between; /* Espacio uniforme entre los botones */ 
-    gap: 1rem; /* Espacio entre los botones */
+  width: 100%;
+  max-width: 800px; /* Ajusta el ancho máximo del carrusel */
+  margin: 20px 0; /* Espaciado vertical */
+  display: flex; /* Usamos flexbox para alinear los botones en línea */
+  justify-content: space-between; /* Espacio uniforme entre los botones */
+  gap: 1rem; /* Espacio entre los botones */
 }
 
 .button-container {
-    display: flex; /* Coloca los botones en línea */
-    justify-content: center; /* Centra los botones */
-    align-items: center;
-    margin: 20px 0; /* Espaciado vertical */
-    gap: 1rem; /* Espacio entre los botones */
+  display: flex; /* Coloca los botones en línea */
+  justify-content: center; /* Centra los botones */
+  align-items: center;
+  margin: 20px 0; /* Espaciado vertical */
+  gap: 1rem; /* Espacio entre los botones */
 }
 
-.view-products-button, .login-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 8px;
-    text-transform: uppercase;
+.view-products-button,
+.login-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  text-transform: uppercase;
 }
 
 .view-products-button {
-    background-color: #eeb770;
-    color: #fcfcfc;
+  background-color: #eeb770;
+  color: #fcfcfc;
 }
 
 .view-products-button:hover {
-    background-color: darkmagenta;
+  background-color: darkmagenta;
 }
 
 .login-button {
-    background-color: #6c757d; /* Color gris para el botón de inicio de sesión */
-    color: white;
+  background-color: #6c757d; /* Color gris para el botón de inicio de sesión */
+  color: white;
 }
 
 .login-button:hover {
-    background-color: #5a6268; /* Color más oscuro al pasar el mouse */
+  background-color: #5a6268; /* Color más oscuro al pasar el mouse */
 }
 
 /* Sección principal */
 .info-section {
-    text-align: center;
-    padding: 3rem 1rem;
-    margin-top: 35px;
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: 35px;
 }
 
 .info-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #ebebeb;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ebebeb;
 }
 
 /* Contenedor de las tarjetas */
 .info-container {
-    display: flex;
-    justify-content: space-around; /* Distribuye los elementos horizontalmente */
-    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en pantallas pequeñas */
-    gap: 1.5rem;
+  display: flex;
+  justify-content: space-around; /* Distribuye los elementos horizontalmente */
+  flex-wrap: wrap; /* Permite que las tarjetas se ajusten en pantallas pequeñas */
+  gap: 1.5rem;
 }
 
 /* Tarjetas individuales */
 .info-card {
-    max-width: 290px; /* Ancho máximo de la tarjeta */
-    text-align: center;
-    padding: 1rem; /* Relleno para separar el icono de los bordes del contenedor */
+  max-width: 290px; /* Ancho máximo de la tarjeta */
+  text-align: center;
+  padding: 1rem; /* Relleno para separar el icono de los bordes del contenedor */
 }
 
 .info-card img {
-    width: 50px; /* Tamaño más pequeño para los iconos */
-    height: auto;
-    margin-bottom: 1rem;
-    background-color: rgb(255, 203, 151);
-    border-radius: 5%;
+  width: 50px; /* Tamaño más pequeño para los iconos */
+  height: auto;
+  margin-bottom: 1rem;
+  background-color: rgb(255, 203, 151);
+  border-radius: 5%;
 }
 
 .info-card h3 {
-    font-size: 1rem;
-    color: #ebebeb;
-    margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #ebebeb;
+  margin-bottom: 0.5rem;
 }
 
 .info-card p {
-    font-size: 1rem;
-    color: #ebebeb;
-    line-height: 1.4;
+  font-size: 1rem;
+  color: #ebebeb;
+  line-height: 1.4;
 }
 
 /* llamado a la accion */
 .cta-section {
-    max-height: 400px; /* Limita la altura máxima */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    display: flex;
-    align-items: center; /* Centra verticalmente el contenido */
-    justify-content: center; /* Centra horizontalmente */
-    padding: 1rem; /* Ajusta el relleno */
-    box-sizing: border-box; /* Evita que padding sume al tamaño total */
-    margin-top: 25px;
+  max-height: 400px; /* Limita la altura máxima */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  display: flex;
+  align-items: center; /* Centra verticalmente el contenido */
+  justify-content: center; /* Centra horizontalmente */
+  padding: 1rem; /* Ajusta el relleno */
+  box-sizing: border-box; /* Evita que padding sume al tamaño total */
+  margin-top: 25px;
 }
 
 .cta-content {
-    flex: 1;
-    max-width: 50%;
-    padding: 25px;
-    text-align: left;
+  flex: 1;
+  max-width: 50%;
+  padding: 25px;
+  text-align: left;
 }
 
 .cta-content h2 {
-    font-size: 2.5rem;
-    color: #ebebeb;
-    margin-bottom: 10px;
+  font-size: 2.5rem;
+  color: #ebebeb;
+  margin-bottom: 10px;
 }
 
 .cta-content p {
-    font-size: 1.2rem;
-    color: #ebebeb;
-    margin-bottom: 25px;
+  font-size: 1.2rem;
+  color: #ebebeb;
+  margin-bottom: 25px;
 }
 
 .cta-button {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background-color: #A47C65; /* Un tono café oscuro */
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #a47c65; /* Un tono café oscuro */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 .cta-button:hover {
-    background-color: #A47C65; /* Un tono más oscuro al pasar el ratón */
+  background-color: #a47c65; /* Un tono más oscuro al pasar el ratón */
 }
 
 .cta-image {
-    flex: 1;
-    max-width: 50%;
-    display: flex;
-    justify-content: center;
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .cta-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Hace que la imagen se ajuste sin deformarse */
-    border-radius: 10px; /* Opcional: para bordes redondeados */ 
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que la imagen se ajuste sin deformarse */
+  border-radius: 10px; /* Opcional: para bordes redondeados */
 }
 
 /* Info en movimiento */
 .moving-text-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    background-color: #4a1c1c;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    position: relative;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #4a1c1c;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-    
 .moving-text {
-    width: max-content;
-    display: inline-flex;
-    animation: scroll-left 35s linear infinite;
+  width: max-content;
+  display: inline-flex;
+  animation: scroll-left 35s linear infinite;
 }
-         
-.moving-text span { 
-    display: inline-block; font-size: 2rem; /* Tamaño de texto más grande */ 
-    padding: 0 2rem; /* Espacio entre las frases */ 
-    font-weight: bold; /* Para darle énfasis al texto */ 
-    font-size: 2rem;
-    color: #A47C65; /* Color del texto */      
-}
+
+.moving-text span {
+  display: inline-block;
+  font-size: 2rem; /* Tamaño de texto más grande */
+  padding: 0 2rem; /* Espacio entre las frases */
+  font-weight: bold; /* Para darle énfasis al texto */
+  font-size: 2rem;
+  color: #a47c65; /* Color del texto */
+} /* Animación de movimiento */
 
 @keyframes scroll-left {
-    0% {
-      transform: translateX(100);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(100);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.button-container .view-products-button,
+.button-container .login-button {
+  background-color: #790000; /* Color de fondo (rojo oscuro) */
+  color: #ffffff; /* Color del texto (blanco) */
+  font-size: 18px; /* Tamaño de fuente */
+  font-weight: 500; /* Peso de fuente más llamativo */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  margin: 10px; /* Espaciado entre botones */
+  text-align: center;
+  align-content: center;
+}
+
+.button-container .view-products-button:hover {
+  background-color: #ebd758; /* Color de fondo amarillo al pasar el mouse */
+  color: #790000; /* Color del texto (rojo oscuro) al pasar el mouse */
+}
+
+.button-container .login-button:hover {
+  background-color: purple; /* Color de fondo púrpura al pasar el mouse */
+  color: #000000; /* Color del texto (negro) al pasar el mouse */
 }

@@ -1,7 +1,7 @@
 // AuthContext.js
-import React, { createContext, useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
 
@@ -47,8 +47,37 @@ export const AuthProvider = ({ children }) => {
     console.log("Usuario desconectado");
   };
 
+  const selfDelete = () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.error("No hay token de autorización");
+      return;
+    }
+    axios
+      .patch(
+        `${process.env.REACT_APP_API_BASE_URL}/api/users/deleteUser/${user._id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(() => {
+        logout();
+      })
+      .catch((error) => {
+        console.error(
+          "Error al eliminar el usuario:",
+          error.response ? error.response.data.message : error.message
+        );
+      });
+  };
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, user, login, logout, selfDelete }}
+    >
       {children}
     </AuthContext.Provider>
   );
