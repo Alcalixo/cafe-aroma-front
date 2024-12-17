@@ -38,6 +38,15 @@ const personal = [
     linkedin: "https://www.linkedin.com/in/juan-ignacio-meza-wakahayashi-349625272/",
     github: "https://github.com/JuanIgnacioMW/JuanignacioMw",
   },
+  {
+    id: 5,
+    nombre: "Leonardo Oscar Canteros",
+    imagen: "https://media.licdn.com/dms/image/v2/C5603AQHlA-DwlQW4Iw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1657573325487?e=1740009600&v=beta&t=Q-fykOdQhFQv93g1hn4Ma_V5gW-Fcjm7KCLyysLAHXk",
+    descripcion:
+      "Estudiante de Licenciatura en Sistemas de Información con habilidades para el análisis, la comunicación y el aprendizaje autodidacta. Apasionado por la tecnología y la innovación. Con experiencia en proyectos en equipo.",
+    linkedin: "https://www.linkedin.com/in/leonardo-oscar-canteros-03916223a/",
+    github: "https://github.com/leonardo-canteros",
+  },
 ];
 
 export default personal;
