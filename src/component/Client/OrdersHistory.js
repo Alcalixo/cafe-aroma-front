@@ -65,12 +65,13 @@ export default function OrdersHistory() {
                       <td>{order.status}</td>
                       <td>
                         $
-                        {(
-                          order.items.reduce(
-                            (acc, item) => acc + item.precio + item.iva,
+                        {order.items
+                          .reduce(
+                            (acc, item) =>
+                              acc + (item.precio + item.iva) * item.cantidad,
                             0
                           )
-                        ).toFixed(2)}
+                          .toFixed(2)}
                       </td>
                       <td className="text-center">
                         <Button
@@ -117,7 +118,12 @@ export default function OrdersHistory() {
                         </td>
                         <td>{item.product_id.name}</td>
                         <td>{item.cantidad}</td>
-                        <td>${(item.precio + item.iva).toFixed(2)}</td>
+                        <td>
+                          $
+                          {((item.precio + item.iva) * item.cantidad).toFixed(
+                            2
+                          )}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
