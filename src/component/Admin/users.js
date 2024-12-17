@@ -85,10 +85,7 @@ const UserTable = () => {
                 <th>Apellido</th>
                 <th>Usuario</th>
                 <th>Correo</th>
-                <th>Provincia</th>
-                <th>Ciudad</th>
-                <th>Domicilio</th>
-                <th>Category</th>
+                <th>Categoría</th>
                 <th>Actualizar</th>
                 <th>Eliminar</th>
               </tr>
@@ -101,9 +98,6 @@ const UserTable = () => {
                   <td>{usuario.apellido}</td>
                   <td>{usuario.username}</td>
                   <td>{usuario.email}</td>
-                  <td>{usuario.provincia}</td>
-                  <td>{usuario.ciudad}</td>
-                  <td>{usuario.domicilio}</td>
                   <td className="categoryColumn">{usuario.categoria}</td>
                   <td>
                     <Button
