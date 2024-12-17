@@ -15,6 +15,8 @@
   transition: color 0.3s, background-color 0.3s; /* Transición suave para el color y fondo */
   padding: 10px 15px; /* Espaciado interno para el enlace */
   border-radius: 5px; /* Bordes redondeados */
+  display: flex; /* Usar flexbox */
+  align-items: center;
 }
 
 .navbar-custom .nav-link:hover {
@@ -40,6 +42,8 @@
 .navbar-custom .dropdown-item {
   color: #4a1c1c; /* Color del texto de los elementos del dropdown (más oscuro) */
   transition: background-color 0.3s, color 0.3s; /* Transición suave para el fondo y color */
+  display: flex; /* Usar flexbox */
+  align-items: center;
 }
 
 .navbar-custom .dropdown-item:hover {
