@@ -86,12 +86,12 @@ function NavbarCafe() {
                   <NavDropdown.Divider />
                   <NavDropdown.Item
                     as={Link}
-                    to="/"
-                    onClick={() => buscarUsuario()}
+                    to="*"
+                   // onClick={() => buscarUsuario()}
                   >
                     Editar Mis Datos
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="#" onClick={logout}>
+                  <NavDropdown.Item as={Link} to="/users/login" onClick={logout}>
                     Cerrar Sesión
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -123,8 +123,8 @@ function NavbarCafe() {
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
-                    to="/"
-                    onClick={() => buscarUsuario()}
+                    to="*"
+                  //  onClick={() => buscarUsuario()}
                   >
                     Editar Mis Datos
                   </NavDropdown.Item>
@@ -195,10 +195,10 @@ function NavbarCafe() {
 
 // Función para buscar usuario (simulando la funcionalidad de CodeIgniter)
 function buscarUsuario() {
-  const dni = "12345678"; // Cambia esto por el valor real de tu estado global
+  const dni = ""; // Cambia esto por el valor real de tu estado global
   const form = document.createElement("form");
-  form.action = "/buscar_usuario"; // Cambia esto por la ruta real de tu API
-  form.method = "post";
+  form.action = ""; // Cambia esto por la ruta real de tu API
+  form.method = "";
   const input = document.createElement("input");
   input.type = "hidden";
   input.name = "dni";
