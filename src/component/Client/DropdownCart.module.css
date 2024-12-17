@@ -1,0 +1,3 @@
+.nav-dropdown-toggle::after {  
+  display: none; /* Oculta la flecha */  
+}  
