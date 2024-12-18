@@ -1,18 +1,20 @@
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
 import { useState } from "react";
-import { Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Button, Row, Col, Container } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
 import { useAuth } from "../../service/AuthContext";
 import { postOrder } from "../../service/Redux/actions/cartActions";
+import { clearCart } from "../../service/Redux/reducers/cartSlice";
 
-function ButtonMercadoPago({ cart }) {
+function ButtonMercadoPago() {
   const publicApi = process.env.REACT_APP_MP_PUBLIC_KEY;
   initMercadoPago(publicApi);
 
   const [preferenceId, setPreferenceId] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const { user } = useAuth();
+  const dispatch = useDispatch();
 
   const globalCart = useSelector((state) => state.cart);
 
@@ -47,6 +49,10 @@ function ButtonMercadoPago({ cart }) {
     id && setPreferenceId(id);
   };
 
+  const handleRemoveAll = () => {
+    dispatch(clearCart());
+  };
+
   const initialization = {
     preferenceId: preferenceId,
   };
@@ -55,6 +61,12 @@ function ButtonMercadoPago({ cart }) {
     texts: {
       valueProp: "smart_option",
     },
+    visual: {
+      buttonHeight: '24px',
+      verticalPadding: '6px',
+      horizontalPadding: "12px",
+      hideValueProp: true,
+    }
   };
 
   const onSubmit = async (formData) => {
@@ -75,24 +87,38 @@ function ButtonMercadoPago({ cart }) {
   };
 
   return (
-    <div>
-      <Button
-        onClick={!isLoading ? handleMP : null}
-        variant="primary"
-        disabled={isLoading}
-      >
-        {isLoading ? "Preparando Pago" : "Proceder al Pago"}
-      </Button>
-      {preferenceId && (
-        <Wallet
-          initialization={initialization}
-          customization={customization}
-          onSubmit={onSubmit}
-          onReady={onReady}
-          onError={onError}
-        />
-      )}
-    </div>
+    <Container>
+        <Row className="justify-content-between d-flex">
+          <Col className="text-center mb-6">
+            <Button variant="primary" onClick={() => handleRemoveAll()}>
+              Vaciar el Carrito
+            </Button>
+          </Col>
+          <Col className="text-center mb-6">
+            <Button
+              onClick={!isLoading ? handleMP : null}
+              variant="primary"
+              disabled={isLoading}
+            >
+              {isLoading ? "Preparando Pago" : "Proceder al Pago"}
+            </Button>
+          </Col>
+        </Row>
+      <Row>
+        <Col className="text-center mb-12" style={{ fontSize: "1rem" }}>
+          {preferenceId && (
+            <Wallet
+              initialization={initialization}
+              customization={customization}
+              locale="es-AR"
+              onSubmit={onSubmit}
+              onReady={onReady}
+              onError={onError}
+            />
+          )}
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

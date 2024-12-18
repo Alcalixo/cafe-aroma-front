@@ -11,7 +11,6 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoCartOutline, IoTrashOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  clearCart,
   removeFromCart,
   updateQuantity,
 } from "../../service/Redux/reducers/cartSlice";
@@ -30,10 +29,6 @@ function DropdownCart() {
 
   const handleQuantityChange = (_id, quantity) => {
     dispatch(updateQuantity({ _id, quantity: parseInt(quantity, 10) }));
-  };
-
-  const handleRemoveAll = () => {
-    dispatch(clearCart());
   };
 
   const calculateSubtotal = () => {
@@ -120,16 +115,7 @@ function DropdownCart() {
                 </h6>
               </Col>
             </Row>
-            <Row className="justify-content-between d-flex">
-              <Col className="text-center mb-6">
-                <Button variant="primary" onClick={() => handleRemoveAll()}>
-                  Vaciar el Carrito
-                </Button>
-              </Col>
-              <Col className="text-center mb-6">
-                <ButtonMercadoPago cart={cart} />
-              </Col>
-            </Row>
+              <ButtonMercadoPago />
           </div>
         )}
       </Container>
