@@ -13,8 +13,6 @@ export const postOrder = async (cart, user) => {
       })),
     };
 
-    console.log(newOrder);
-
     const orderSaved = (
       await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/api/ordenes/crearPedido`,

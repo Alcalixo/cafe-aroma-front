@@ -12,7 +12,6 @@ export const fetchProtectedData = async () => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log('Datos protegidos:', response.data);
   } catch (error) {
     console.error('Error al obtener datos protegidos:', error.response ? error.response.data.message : error.message);
   }

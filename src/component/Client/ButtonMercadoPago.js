@@ -78,7 +78,6 @@ function ButtonMercadoPago() {
 
   const onError = async (error) => {
     // callback called for all Brick error cases
-    console.log(error);
   };
 
   const onReady = async () => {

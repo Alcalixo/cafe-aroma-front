@@ -23,7 +23,6 @@ export const AuthProvider = ({ children }) => {
         .then((response) => {
           setUser(response.data);
           setIsAuthenticated(true);
-          console.log("Datos del usuario cargados:", response.data);
         })
         .catch((error) => {
           console.error(
@@ -37,14 +36,12 @@ export const AuthProvider = ({ children }) => {
   const login = (user) => {
     setUser(user);
     setIsAuthenticated(true);
-    console.log("Usuario logueado:", user);
   };
 
   const logout = () => {
     localStorage.removeItem("token");
     setUser(null);
     setIsAuthenticated(false);
-    console.log("Usuario desconectado");
   };
 
   const selfDelete = () => {
