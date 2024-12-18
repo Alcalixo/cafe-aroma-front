@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useAuth } from "../../service/AuthContext";
 import { postOrder } from "../../service/Redux/actions/cartActions";
 import { clearCart } from "../../service/Redux/reducers/cartSlice";
+import "./ButtonMercadoPago.module.css";
 
 function ButtonMercadoPago() {
   const publicApi = process.env.REACT_APP_MP_PUBLIC_KEY;
@@ -105,17 +106,19 @@ function ButtonMercadoPago() {
           </Col>
         </Row>
       <Row>
-        <Col className="text-center mb-12" style={{ fontSize: "1rem" }}>
+        <Col className="text-center mb-12">
           {preferenceId && (
-            <Wallet
-              initialization={initialization}
-              customization={customization}
-              locale="es-AR"
-              onSubmit={onSubmit}
-              onReady={onReady}
-              onError={onError}
-            />
-          )}
+            <div className="wallet-container">
+              <Wallet
+                initialization={initialization}
+                customization={customization}
+                locale="es-AR"
+                onSubmit={onSubmit}
+                onReady={onReady}
+                onError={onError}
+              />
+            </div>
+            )}
         </Col>
       </Row>
     </Container>
