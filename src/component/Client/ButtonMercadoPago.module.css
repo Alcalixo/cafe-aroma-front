@@ -1,0 +1,5 @@
+.wallet-container {
+    max-height: 300px; /* Ajusta el valor según tus necesidades */
+    overflow: auto; /* Permite el desplazamiento si la Wallet es más grande que el límite de altura */
+    font-size: 1rem !important;
+  }
