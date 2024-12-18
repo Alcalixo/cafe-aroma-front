@@ -63,9 +63,9 @@ function ButtonMercadoPago() {
       valueProp: "smart_option",
     },
     visual: {
-      buttonHeight: '24px',
-      verticalPadding: '6px',
-      horizontalPadding: "12px",
+      //buttonHeight: 'auto', // Cambia '0px' a 'auto' o a un valor específico
+      //verticalPadding: '10px', // Ajusta el padding vertical según sea necesario
+      //horizontalPadding: "20px", // Ajusta el padding horizontal según sea necesario
       hideValueProp: true,
     }
   };

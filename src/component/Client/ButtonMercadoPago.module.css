@@ -1,5 +1,21 @@
 .wallet-container {
-    max-height: 300px; /* Ajusta el valor según tus necesidades */
-    overflow: auto; /* Permite el desplazamiento si la Wallet es más grande que el límite de altura */
-    font-size: 1rem !important;
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  margin: 20px 0; /* Espaciado superior e inferior */
+  width: 100%; /* Asegúrate de que ocupe el ancho completo */
+}
+
+.wallet-container .mp-button {
+  max-width: 200px; /* Establece un ancho máximo para el botón */
+  width: 100%; /* Asegúrate de que el botón ocupe el ancho del contenedor */
+  padding: 5px 10px; /* Ajusta el padding según sea necesario */
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 720px) { /* lg y superior */
+  .wallet-container .mp-button {
+    max-width: 150px; /* Reduce el ancho máximo del botón en pantallas grandes */
+    padding: 5px; /* Ajusta el padding si es necesario */
   }
+}
