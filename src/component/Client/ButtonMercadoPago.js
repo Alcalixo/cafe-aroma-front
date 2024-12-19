@@ -90,14 +90,17 @@ function ButtonMercadoPago() {
     <Container>
         <Row className="justify-content-between d-flex">
           <Col className="text-center mb-6">
-            <Button variant="primary" onClick={() => handleRemoveAll()}>
+            <Button
+            variant="danger"
+            onClick={() => handleRemoveAll()} 
+            >
               Vaciar el Carrito
             </Button>
           </Col>
           <Col className="text-center mb-6">
             <Button
               onClick={!isLoading ? handleMP : null}
-              variant="primary"
+              variant="success"
               disabled={isLoading}
             >
               {isLoading ? "Preparando Pago" : "Proceder al Pago"}
