@@ -19,6 +19,7 @@ function Productos() {
   const [paginaActual, setPaginaActual] = useState(1);
   const [productosPorPagina, setProductosPorPagina] = useState(4);
   const [showAlert, setShowAlert] = useState(false);
+  const [showAlertCards, setShowAlertCards] = useState({});
   const [mensaje, setMensaje] = useState("");
 
   const filteredProducts = productos.filter((product) => {
@@ -52,9 +53,17 @@ function Productos() {
 
     setShowAlert(true);
     setMensaje(`Producto ${producto.name} agregado al carrito`);
+    setShowAlertCards((prevState) => ({
+      ...prevState,
+      [producto._id]: true,
+    }));
 
     setTimeout(() => {
       setShowAlert(false);
+      setShowAlertCards((prevState) => ({
+        ...prevState,
+        [producto._id]: false,
+      }));
     }, 2000); // 2000ms = 2 segundos
   };
 
@@ -85,6 +94,11 @@ function Productos() {
                 <Card.Text>Precio: ${producto.precio}</Card.Text>
                 <Card.Text>Disponibilidad:{producto.stock} </Card.Text>
               </Card.Body>
+              {showAlertCards[producto._id] && (
+                <div className="alert alert-success" role="alert">
+                  {mensaje}
+                </div>
+              )}
               {isAuthenticated && user?.categoria === "cliente" && (
                 <Button
                   variant="warning"
@@ -97,11 +111,6 @@ function Productos() {
             </Card>
           </Col>
         ))}
-        {showAlert && (
-          <div className="alert alert-success" role="alert">
-            {mensaje}
-          </div>
-        )}
       </Row>
       <Row className="justify-content-center text-align-center">
         <Col xs="auto">
