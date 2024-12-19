@@ -16,6 +16,7 @@ import Footer from "./component/Layout/footer";
 import NavbarCafe from "./component/Layout/navbar";
 import { AuthProvider, useAuth } from "./service/AuthContext";
 import { SearchProvider } from "./service/SearchContext";
+import Comentarios from "./component/Admin/VerComentarios";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function MainRoutes() {
           <Route path="/listaUsuarios" element={<UserTable />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/ordersHistory" element={<OrdersHistory />} />
+          <Route path="/admin/comentarios" element={<Comentarios />} />
         </>
       ) : (
         <Route path="/users/login" element={<Login />} />

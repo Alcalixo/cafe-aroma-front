@@ -73,7 +73,7 @@ function NavbarCafe() {
                 <Nav.Link as={NavLink} to="/about" className="nav-link">
                   Quienes Somos
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/acerca_de" className="nav-link">
+                <Nav.Link as={NavLink} to="/admin/comentarios" className="nav-link">
                   Lista de comentarios
                 </Nav.Link>
                 <NavDropdown title="Opciones" id="navbarDropdown">

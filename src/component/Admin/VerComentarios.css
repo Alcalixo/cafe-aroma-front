@@ -1,0 +1,32 @@
+/* comments.css */
+.comments-container {
+    margin-top: 30px;
+  }
+  
+  .comments-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .comments-table th,
+  .comments-table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .comments-table th {
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  .comments-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .comments-table .btn {
+    margin-right: 5px;
+  }
+  
+  .TitleComments{
+    color: white;
+  }
