@@ -19,3 +19,23 @@
     padding: 5px; /* Ajusta el padding si es necesario */
   }
 }
+
+
+.vaciar-carrito {
+  background-color: #eeb770;
+  color: #fcfcfc;
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  text-align: center;
+  align-content: center;
+}
+
+/* .vaciar-carrito:hover {
+  background-color: darkmagenta;
+} */
+
+.vaciar-carrito:hover {
+  background-color: #ebd758; /* Color de fondo amarillo al pasar el mouse */
+  color: #790000; /* Color del texto (rojo oscuro) al pasar el mouse */
+}
